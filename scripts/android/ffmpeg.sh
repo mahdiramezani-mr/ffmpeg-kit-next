@@ -388,6 +388,13 @@ else
   DEBUG_OPTIONS="--enable-debug --disable-stripping"
 fi
 
+# FFMPEG'S DEFAULT HOST COMPILER IS gcc, WHICH THE NIX SHELL ON MACOS DOES NOT PROVIDE
+if gcc --version 1>/dev/null 2>&1; then
+  HOST_CC_OPTIONS=""
+else
+  HOST_CC_OPTIONS="--host-cc=clang"
+fi
+
 echo -n -e "\n${LIB_NAME}: "
 
 if [[ -z ${NO_WORKSPACE_CLEANUP_ffmpeg} ]]; then
@@ -449,6 +456,7 @@ fi
   --ar="${AR}" \
   --cc="${CC}" \
   --cxx="${CXX}" \
+  ${HOST_CC_OPTIONS} \
   --ranlib="${RANLIB}" \
   --strip="${STRIP}" \
   --nm="${NM}" \
