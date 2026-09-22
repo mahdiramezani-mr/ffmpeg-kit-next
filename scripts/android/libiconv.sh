@@ -4,6 +4,7 @@
 ${SED_INLINE} 's|git://git.savannah.gnu.org|https://github.com/arthenica|g' "${BASEDIR}"/src/"${LIB_NAME}"/.gitmodules || return 1
 ln -s -f $(which aclocal) ${BASEDIR}/.tmp/aclocal-1.16
 ln -s -f $(which automake) ${BASEDIR}/.tmp/automake-1.16
+gcc --version 1>/dev/null 2>&1 || ln -s -f "$(which clang)" ${BASEDIR}/.tmp/gcc
 PATH="${BASEDIR}/.tmp":$PATH
 
 if [[ ! -d "${BASEDIR}"/src/"${LIB_NAME}"/gnulib ]]; then
@@ -23,6 +24,9 @@ make distclean 2>/dev/null 1>/dev/null
 
 # REGENERATE BUILD FILES IF NECESSARY OR REQUESTED
 if [[ ! -f "${BASEDIR}"/src/"${LIB_NAME}"/configure ]] || [[ ${RECONF_libiconv} -eq 1 ]]; then
+
+  # FILES COPIED FROM THE NIX STORE ARE READ-ONLY AND autogen.sh OVERWRITES THEM WITH cp -p
+  chmod -R u+w "${BASEDIR}"/src/"${LIB_NAME}" || return 1
   ./autogen.sh || return 1
 fi
 
