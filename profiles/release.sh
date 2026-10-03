@@ -102,6 +102,9 @@ fi
 
 binary_paths=()
 flags_summary=""
+if [[ -n ${FFMPEG_KIT_EXTRA_CONFIGURE_FLAGS:-} ]]; then
+  flags_summary+="ffmpeg configure: ${FFMPEG_KIT_EXTRA_CONFIGURE_FLAGS}"$'\n'
+fi
 for platform in "${platforms[@]}"; do
   assert_binary_version "${platform}"
   binary_paths+=("flutter/flutter/$(binary_dir "${platform}")")

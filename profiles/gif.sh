@@ -1,3 +1,20 @@
+ffmpeg_configure_args=(
+  --disable-everything
+  --disable-autodetect
+  --disable-network
+  --enable-zlib
+  --enable-demuxer=image2
+  --enable-parser=png
+  --enable-decoder=png
+  --enable-encoder=gif
+  --enable-muxer=gif
+  --enable-protocol=file
+  --enable-filter=split,palettegen,paletteuse,format,scale,null,trim
+  --enable-swscale
+)
+
+export FFMPEG_KIT_EXTRA_CONFIGURE_FLAGS="${ffmpeg_configure_args[*]}"
+
 platforms=(android ios macos)
 
 android_args=(

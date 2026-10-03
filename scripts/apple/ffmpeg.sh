@@ -661,7 +661,7 @@ ${SED_INLINE} 's/static int av_log_level/__thread int av_log_level/g' "${BASEDIR
   --disable-nvenc \
   --disable-vaapi \
   --disable-vdpau \
-  ${CONFIGURE_POSTFIX} 1>>"${BASEDIR}"/build.log 2>&1
+  ${CONFIGURE_POSTFIX} ${FFMPEG_KIT_EXTRA_CONFIGURE_FLAGS:-} 1>>"${BASEDIR}"/build.log 2>&1
 
 if [[ $? -ne 0 ]]; then
   exit 1
