@@ -48,7 +48,7 @@ The tag message lists the exact nix flags each platform was built with.
 | Profile | For | Libraries | License |
 |---------|-----|-----------|---------|
 | `studio` | video editing and export | x264, x265, dav1d, lame, zimg, zlib, libiconv; bzip2 + VideoToolbox on Apple, MediaCodec on Android | GPL |
-| `gif` | PNG sequence to transparent GIF | system zlib; PNG decoder, GIF encoder, palette filters | LGPL |
+| `gif` | raw RGBA stream to transparent GIF | rawvideo decoder, GIF encoder, file/ffkitstream protocols, palette filters | LGPL |
 
 Platforms of `studio` and `gif`: Android `arm64-v8a` `armeabi-v7a` `x86_64` (API 24),
 iOS `arm64` + simulator `arm64` `x86_64` (15.0), macOS universal (10.15).
