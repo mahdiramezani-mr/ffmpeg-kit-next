@@ -2103,6 +2103,11 @@ downloaded_library_sources() {
     exit 1
   fi
 
+  if ! bash "${BASEDIR}/tools/apply-ffmpeg-patches.sh" "${BASEDIR}/src/ffmpeg" >>"${BASEDIR}/build.log" 2>&1; then
+    echo "error: could not apply the official FFmpeg patches; see build.log" >&2
+    exit 1
+  fi
+
   # DOWNLOAD LIBRARY SOURCES
   for library in $(get_common_library_indexes); do
     if [[ ${ENABLED_LIBRARIES[$library]} -eq 1 ]]; then

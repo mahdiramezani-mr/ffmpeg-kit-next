@@ -101,7 +101,8 @@ fi
 (cd "${plugin_dir}" && ./copy_local_binaries.sh "${platforms[@]}")
 
 binary_paths=()
-flags_summary=""
+flags_summary="ffmpeg: n7.1.5 (3a0867c2bfda4a4d4309ca1a8cbdc6175e67f587)"$'\n'
+flags_summary+="ffmpeg upstream patch: c80002aa81e39f6bcc8d08c13acf8f9f61105cb0"$'\n'
 if [[ -n ${FFMPEG_KIT_EXTRA_CONFIGURE_FLAGS:-} ]]; then
   flags_summary+="ffmpeg configure: ${FFMPEG_KIT_EXTRA_CONFIGURE_FLAGS}"$'\n'
 fi

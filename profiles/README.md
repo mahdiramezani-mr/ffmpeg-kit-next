@@ -12,7 +12,7 @@ dependencies:
     git:
       url: https://github.com/mahdiramezani-mr/ffmpeg-kit-next.git
       path: flutter/flutter
-      ref: v7.1.0-studio.1
+      ref: v7.1.0-studio.2
 ```
 
 Always reference a tag, never a branch: branches carry no binaries.
@@ -41,7 +41,8 @@ allprojects {
   flags, toolchain, security fix in a library) gets the next number; a published
   tag is never moved.
 
-The tag message lists the exact nix flags each platform was built with.
+The tag message lists the FFmpeg source revision, upstream patch and exact nix
+flags each platform was built with.
 
 ## Profiles
 
@@ -76,6 +77,27 @@ git push origin v<version>-studio.<n>        # or pass --push
 The binaries are committed on a commit that sits only behind its tag, so the
 branches stay small and merge cleanly with upstream. Every release still adds
 ~200 MB that each consumer's `pub get` downloads once; delete tags nobody uses.
+
+## FFmpeg 7.1.5 color metadata fix
+
+`profiles-7.1` applies upstream commit
+[`c80002aa81e39f6bcc8d08c13acf8f9f61105cb0`](https://ffmpeg.org/pipermail/ffmpeg-cvslog/2025-June/148807.html)
+when preparing FFmpeg sources. The patch changes only H.264/HEVC VUI parsing:
+reserved color primaries, transfer characteristics and matrix coefficients are
+treated as unspecified. Valid color metadata is preserved. No custom `colr`
+demuxer patch is included.
+
+The build checks the pinned source revision and exact VUI content. Both a fresh
+checkout and an already patched source are accepted; unexpected content stops
+the build. Test this behavior after downloading the FFmpeg sources with:
+
+```bash
+python3 tools/tests/test_ffmpeg_patches.py
+```
+
+Build all studio platforms when releasing this fix. `--skip-build` is only for
+binaries rebuilt and verified during the current release; the plugin version
+alone does not prove that a prebuilt binary contains the patch.
 
 ## Updating from upstream
 
