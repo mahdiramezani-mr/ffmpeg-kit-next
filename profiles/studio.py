@@ -13,6 +13,7 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+import zipfile
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
