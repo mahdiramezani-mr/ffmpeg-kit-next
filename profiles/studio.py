@@ -419,6 +419,14 @@ def release(publish, tag_local=False):
         env = dict(os.environ, GIT_INDEX_FILE=str(Path(folder) / "index"))
         run(["git", "read-tree", "HEAD"], env=env)
         run(["git", "add", "-f", "--", *binaries], env=env)
+        apple_executables = []
+        for name in ("ios", "macos"):
+            receipt = json.loads(receipt_path(name).read_text(encoding="utf-8"))
+            components = {"ffmpegkit", "libavcodec", "libavdevice", "libavfilter", "libavformat", "libavutil", "libswresample", "libswscale"}
+            apple_executables.extend(relative for relative, details in receipt["files"].items()
+                                     if "link" not in details and PurePosixPath(relative).name in components)
+        if apple_executables:
+            run(["git", "update-index", "--chmod=+x", "--", *apple_executables], env=env)
         tree = run(["git", "write-tree"], capture=True, env=env).strip()
         commit = run(["git", "commit-tree", tree, "-p", "HEAD", "-m", f"release: {tag} (FFmpeg 9.0.2, Studio, four platforms)"], capture=True).strip()
     flags = "\n".join(name + ": " + shlex.join([*CONFIG["common_args"], *entry["args"]])
