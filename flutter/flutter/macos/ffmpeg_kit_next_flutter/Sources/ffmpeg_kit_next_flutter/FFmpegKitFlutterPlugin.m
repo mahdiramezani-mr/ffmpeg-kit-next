@@ -514,7 +514,7 @@ extern int const AbstractSessionDefaultTimeoutForAsynchronousMessagesInTransmit;
     [self getSupportedCameraIds:result];
   } else if ([@"inputBufferFromByteArray" isEqualToString:call.method]) {
     FlutterStandardTypedData* data = call.arguments[@"data"];
-    NSString* extension = call.arguments[@"extension"];
+    NSString* extension = [call.arguments[@"extension"] isKindOfClass:[NSString class]] ? call.arguments[@"extension"] : nil;
     if (data != nil) {
       [self inputBufferFromByteArray:data extension:extension result:result];
     } else {
@@ -528,7 +528,7 @@ extern int const AbstractSessionDefaultTimeoutForAsynchronousMessagesInTransmit;
       result([FlutterError errorWithCode:@"INVALID_URL" message:@"Invalid input buffer url." details:nil]);
     }
   } else if ([@"outputBufferCreate" isEqualToString:call.method]) {
-    NSString* extension = call.arguments[@"extension"];
+    NSString* extension = [call.arguments[@"extension"] isKindOfClass:[NSString class]] ? call.arguments[@"extension"] : nil;
     NSNumber* initialCapacity = call.arguments[@"initialCapacity"];
     NSNumber* maxCapacity = call.arguments[@"maxCapacity"];
     [self outputBufferCreate:extension initialCapacity:initialCapacity maxCapacity:maxCapacity result:result];
@@ -554,13 +554,13 @@ extern int const AbstractSessionDefaultTimeoutForAsynchronousMessagesInTransmit;
       result([FlutterError errorWithCode:@"INVALID_URL" message:@"Invalid output buffer url." details:nil]);
     }
   } else if ([@"streamInputCreate" isEqualToString:call.method]) {
-    NSString* extension = call.arguments[@"extension"];
-    NSNumber* capacity = call.arguments[@"capacity"];
+    NSString* extension = [call.arguments[@"extension"] isKindOfClass:[NSString class]] ? call.arguments[@"extension"] : nil;
+    NSNumber* capacity = [call.arguments[@"capacity"] isKindOfClass:[NSNumber class]] ? call.arguments[@"capacity"] : nil;
     [self streamInputCreate:extension capacity:capacity result:result];
   } else if ([@"streamInputWrite" isEqualToString:call.method]) {
     NSString* url = call.arguments[@"url"];
     FlutterStandardTypedData* data = call.arguments[@"data"];
-    NSNumber* timeoutMs = call.arguments[@"timeoutMs"];
+    NSNumber* timeoutMs = [call.arguments[@"timeoutMs"] isKindOfClass:[NSNumber class]] ? call.arguments[@"timeoutMs"] : nil;
     if ((url != nil) && (data != nil)) {
       [self streamInputWrite:url data:data timeoutMs:timeoutMs result:result];
     } else {
@@ -581,13 +581,13 @@ extern int const AbstractSessionDefaultTimeoutForAsynchronousMessagesInTransmit;
       result([FlutterError errorWithCode:@"INVALID_URL" message:@"Invalid stream input url." details:nil]);
     }
   } else if ([@"streamOutputCreate" isEqualToString:call.method]) {
-    NSString* extension = call.arguments[@"extension"];
-    NSNumber* capacity = call.arguments[@"capacity"];
+    NSString* extension = [call.arguments[@"extension"] isKindOfClass:[NSString class]] ? call.arguments[@"extension"] : nil;
+    NSNumber* capacity = [call.arguments[@"capacity"] isKindOfClass:[NSNumber class]] ? call.arguments[@"capacity"] : nil;
     [self streamOutputCreate:extension capacity:capacity result:result];
   } else if ([@"streamOutputRead" isEqualToString:call.method]) {
     NSString* url = call.arguments[@"url"];
     NSNumber* maxBytes = call.arguments[@"maxBytes"];
-    NSNumber* timeoutMs = call.arguments[@"timeoutMs"];
+    NSNumber* timeoutMs = [call.arguments[@"timeoutMs"] isKindOfClass:[NSNumber class]] ? call.arguments[@"timeoutMs"] : nil;
     if ((url != nil) && (maxBytes != nil)) {
       [self streamOutputRead:url maxBytes:maxBytes timeoutMs:timeoutMs result:result];
     } else {

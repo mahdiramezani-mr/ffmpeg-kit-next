@@ -109,7 +109,12 @@
       "file": "patches/studio/08-session-cancellation.patch",
       "from": "local",
       "reason": "Check the session cancellation request in the main scheduler loop on every platform"
+    },
+    {
+      "file": "patches/studio/09-apple-null-buffer-options.patch",
+      "from": "local",
+      "reason": "Convert Flutter NSNull extension, stream capacity and timeout options to nil in the Apple plugin"
     }
   ],
-  "patched_tree": "c1e0d76ee797525000d268fe19063f9f09a33072"
+  "patched_tree": "eac0bae41801b5ff13c4b6d680b403d06319e257"
 }
