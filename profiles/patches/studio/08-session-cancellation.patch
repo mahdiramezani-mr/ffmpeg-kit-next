@@ -1,0 +1,60 @@
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.c
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.c
+@@ -1047,7 +1047,7 @@
+     while (!sch_wait(sch, stats_period, &transcode_ts)) {
+         int64_t cur_time= av_gettime_relative();
+ 
+-        if (received_nb_signals)
++        if (received_nb_signals || cancelRequested(globalSessionId))
+             break;
+ 
+         /* if 'q' pressed, exits */
+diff --git a/apple/src/fftools/ffmpeg.c b/apple/src/fftools/ffmpeg.c
+--- a/apple/src/fftools/ffmpeg.c
++++ b/apple/src/fftools/ffmpeg.c
+@@ -1047,7 +1047,7 @@
+     while (!sch_wait(sch, stats_period, &transcode_ts)) {
+         int64_t cur_time= av_gettime_relative();
+ 
+-        if (received_nb_signals)
++        if (received_nb_signals || cancelRequested(globalSessionId))
+             break;
+ 
+         /* if 'q' pressed, exits */
+diff --git a/windows/src/fftools/ffmpeg.c b/windows/src/fftools/ffmpeg.c
+--- a/windows/src/fftools/ffmpeg.c
++++ b/windows/src/fftools/ffmpeg.c
+@@ -1047,7 +1047,7 @@
+     while (!sch_wait(sch, stats_period, &transcode_ts)) {
+         int64_t cur_time= av_gettime_relative();
+ 
+-        if (received_nb_signals)
++        if (received_nb_signals || cancelRequested(globalSessionId))
+             break;
+ 
+         /* if 'q' pressed, exits */
+diff --git a/linux/src/fftools/ffmpeg.c b/linux/src/fftools/ffmpeg.c
+--- a/linux/src/fftools/ffmpeg.c
++++ b/linux/src/fftools/ffmpeg.c
+@@ -1047,7 +1047,7 @@
+     while (!sch_wait(sch, stats_period, &transcode_ts)) {
+         int64_t cur_time= av_gettime_relative();
+ 
+-        if (received_nb_signals)
++        if (received_nb_signals || cancelRequested(globalSessionId))
+             break;
+ 
+         /* if 'q' pressed, exits */
+diff --git a/web/src/fftools/ffmpeg.c b/web/src/fftools/ffmpeg.c
+--- a/web/src/fftools/ffmpeg.c
++++ b/web/src/fftools/ffmpeg.c
+@@ -1047,7 +1047,7 @@
+     while (!sch_wait(sch, stats_period, &transcode_ts)) {
+         int64_t cur_time= av_gettime_relative();
+ 
+-        if (received_nb_signals)
++        if (received_nb_signals || cancelRequested(globalSessionId))
+             break;
+ 
+         /* if 'q' pressed, exits */

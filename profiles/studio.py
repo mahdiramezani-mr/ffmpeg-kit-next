@@ -13,6 +13,7 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+import time
 import zipfile
 
 HERE = Path(__file__).resolve().parent
@@ -180,6 +181,8 @@ def smoke_windows():
         "ffk_session_get_return_code": (ct.c_int, [ct.c_void_p, ct.POINTER(ct.c_int)]),
         "ffk_session_get_output": (ct.c_void_p, [ct.c_void_p]),
         "ffk_session_free": (None, [ct.c_void_p]),
+        "ffk_session_cancel": (None, [ct.c_void_p]),
+        "ffk_ffmpegkit_execute_with_arguments_async": (ct.c_void_p, [ct.POINTER(ct.c_char_p), ct.c_size_t, *([ct.c_void_p] * 9)]),
         "ffk_config_register_ffmpegkit_input_buffer": (ct.c_long, [ct.POINTER(ct.c_uint8), ct.c_size_t]),
         "ffk_config_register_ffmpegkit_output_buffer": (ct.c_long, [ct.c_long, ct.c_long]),
         "ffk_config_get_ffmpegkit_output_buffer": (ct.c_int, [ct.c_long, ct.POINTER(ct.POINTER(ct.c_uint8)), ct.POINTER(ct.c_size_t)]),
@@ -254,7 +257,29 @@ def smoke_windows():
     finally:
         lib.ffk_config_unregister_ffmpegkit_buffer(source)
         lib.ffk_config_unregister_ffmpegkit_buffer(target)
-    print(f"Windows smoke passed: FFmpeg {ffmpeg_version}, Studio encoders, native memory roundtrip")
+    arguments = ["-re", "-f", "lavfi", "-i", "testsrc2=size=64x64:rate=30", "-t", "120", "-f", "null", "-"]
+    encoded = [argument.encode("utf-8") for argument in arguments]
+    argv = (ct.c_char_p * len(encoded))(*encoded)
+    session = lib.ffk_ffmpegkit_execute_with_arguments_async(argv, len(encoded), *([None] * 9))
+    if not session:
+        raise ValueError("Native async session creation failed")
+    time.sleep(1)
+    code = ct.c_int()
+    if lib.ffk_session_get_return_code(session, ct.byref(code)):
+        lib.ffk_session_free(session)
+        raise ValueError("Cancellation test completed before the cancellation request")
+    lib.ffk_session_cancel(session)
+    deadline = time.monotonic() + 30
+    while not lib.ffk_session_get_return_code(session, ct.byref(code)):
+        if time.monotonic() >= deadline:
+            raise ValueError("Native cancellation did not complete within 30 seconds")
+        time.sleep(0.05)
+    try:
+        if code.value != 255:
+            raise ValueError(f"Wrong native cancellation return code: {code.value}")
+    finally:
+        lib.ffk_session_free(session)
+    print(f"Windows smoke passed: FFmpeg {ffmpeg_version}, Studio encoders, blur regressions, native memory roundtrip, async cancellation")
 
 
 def bash_run(args, shell):

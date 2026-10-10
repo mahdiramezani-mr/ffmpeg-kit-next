@@ -104,7 +104,12 @@
       "file": "patches/studio/07-clang22-blur.patch",
       "from": "local",
       "reason": "Windows x64 Clang 22 misaligned vector conversions in gblur, dblur and bilateral integer output loops"
+    },
+    {
+      "file": "patches/studio/08-session-cancellation.patch",
+      "from": "local",
+      "reason": "Check the session cancellation request in the main scheduler loop on every platform"
     }
   ],
-  "patched_tree": "11561c9e32eec63e82df5519a2e9acf27a41c7eb"
+  "patched_tree": "c1e0d76ee797525000d268fe19063f9f09a33072"
 }
