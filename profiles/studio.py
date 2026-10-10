@@ -143,7 +143,8 @@ def check_binaries(root, name):
         aar = base / f"com/arthenica/ffmpeg-kit-next/{version}/ffmpeg-kit-next-{version}.aar"
         with zipfile.ZipFile(aar) as bundle:
             for abi in ["armeabi-v7a", "arm64-v8a", "x86_64"]:
-                if f"jni/{abi}/libffmpegkit.so" not in bundle.namelist():
+                library = "libffmpegkit_armv7a_neon.so" if abi == "armeabi-v7a" else "libffmpegkit.so"
+                if f"jni/{abi}/{library}" not in bundle.namelist():
                     raise ValueError(f"Missing Android ABI {abi}")
     else:
         for component in ["ffmpegkit", "libavcodec", "libavdevice", "libavfilter", "libavformat", "libavutil", "libswresample", "libswscale"]:
