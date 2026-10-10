@@ -1,0 +1,134 @@
+diff --git a/android.sh b/android.sh
+index 91330de..a00e5c2 100755
+--- a/android.sh
++++ b/android.sh
+@@ -10,16 +10,6 @@ if [[ -z ${ANDROID_NDK_ROOT} ]]; then
+   exit 1
+ fi
+ 
+-if [[ -z ${HOST_CC} ]]; then
+-  HOST_CC="$(command -v clang)"
+-fi
+-
+-if [[ -z ${HOST_CC} ]]; then
+-  echo -e "\n(*) clang not found. Install clang or set HOST_CC to a C compiler for the build machine\n"
+-  exit 1
+-fi
+-export HOST_CC
+-
+ # LOAD INITIAL SETTINGS
+ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ export BASEDIR="${SCRIPT_DIR}"
+diff --git a/scripts/apple/ffmpeg.sh b/scripts/apple/ffmpeg.sh
+index 3726928..7466f05 100755
+--- a/scripts/apple/ffmpeg.sh
++++ b/scripts/apple/ffmpeg.sh
+@@ -622,6 +622,7 @@ ${SED_INLINE} 's/static atomic_int av_log_level/__thread atomic_int av_log_level
+   --ar="${AR}" \
+   --cc="${CC}" \
+   --cxx="${CXX}" \
++  --host-cc="${HOST_CC}" \
+   --as="${AS}" \
+   --ranlib="${RANLIB}" \
+   --strip="${STRIP}" \
+diff --git a/scripts/function-android.sh b/scripts/function-android.sh
+index 071d39a..8c23b42 100755
+--- a/scripts/function-android.sh
++++ b/scripts/function-android.sh
+@@ -1160,6 +1160,11 @@ android_ndk_cmake() {
+ }
+ 
+ set_toolchain_paths() {
++  # CROSS-COMPILING, SO TOOLS THAT RUN ON THE BUILD MACHINE NEED THEIR OWN
++  # COMPILER. RESOLVED BEFORE THE NDK IS ADDED TO PATH, SO THE NDK clang IS NEVER
++  # PICKED AS THE HOST COMPILER
++  set_host_cc "$(command -v clang)"
++
+   export PATH="$PATH":"${ANDROID_TOOLCHAIN}"/bin
+ 
+   HOST=$(get_host)
+diff --git a/scripts/function-ios.sh b/scripts/function-ios.sh
+index f9b7df2..49f49a7 100755
+--- a/scripts/function-ios.sh
++++ b/scripts/function-ios.sh
+@@ -363,6 +363,10 @@ get_ldflags() {
+ }
+ 
+ set_toolchain_paths() {
++  # CROSS-COMPILING, SO TOOLS THAT RUN ON THE BUILD MACHINE NEED THEIR OWN
++  # COMPILER
++  set_host_cc "$(command -v clang)"
++
+   if [ ! -f "${FFMPEG_KIT_TMPDIR}/gas-preprocessor.pl" ]; then
+     DOWNLOAD_RESULT=$(download "https://github.com/arthenica/gas-preprocessor/raw/v20210917/gas-preprocessor.pl" "gas-preprocessor.pl" "exit")
+     if [[ ${DOWNLOAD_RESULT} -ne 0 ]]; then
+diff --git a/scripts/function-macos.sh b/scripts/function-macos.sh
+index 788d943..30c029c 100755
+--- a/scripts/function-macos.sh
++++ b/scripts/function-macos.sh
+@@ -273,6 +273,10 @@ get_ldflags() {
+ }
+ 
+ set_toolchain_paths() {
++  # CROSS-COMPILING, SO TOOLS THAT RUN ON THE BUILD MACHINE NEED THEIR OWN
++  # COMPILER
++  set_host_cc "$(command -v clang)"
++
+   if [ ! -f "${FFMPEG_KIT_TMPDIR}/gas-preprocessor.pl" ]; then
+     DOWNLOAD_RESULT=$(download "https://github.com/arthenica/gas-preprocessor/raw/v20210917/gas-preprocessor.pl" "gas-preprocessor.pl" "exit")
+     if [[ ${DOWNLOAD_RESULT} -ne 0 ]]; then
+diff --git a/scripts/function-windows.sh b/scripts/function-windows.sh
+index abbc76a..c76b8ac 100755
+--- a/scripts/function-windows.sh
++++ b/scripts/function-windows.sh
+@@ -530,6 +530,10 @@ set_toolchain_paths() {
+     exit 1
+   fi
+ 
++  # THE BUILD IS NATIVE, SO THE C COMPILER ALSO BUILDS THE TOOLS THAT RUN ON THE
++  # BUILD MACHINE
++  set_host_cc "${CC}"
++
+   # BINUTILS: CLANG64 AND CLANGARM64 SHIP LLVM BINUTILS IN ${MINGW_PREFIX}/bin.
+   # TRY THERE FIRST, THEN FALL BACK TO PATH.
+   export AR=$(resolve_environment_tool "ar")
+diff --git a/scripts/function.sh b/scripts/function.sh
+index 82c0b11..61e3d2f 100755
+--- a/scripts/function.sh
++++ b/scripts/function.sh
+@@ -713,6 +713,22 @@ get_host() {
+   esac
+ }
+ 
++# SETS HOST_CC, THE C COMPILER FOR TOOLS THAT RUN ON THE BUILD MACHINE, LIKE
++# FFmpeg's HOST PROGRAMS. A HOST_CC SET BY THE USER ALWAYS WINS.
++#
++# THE DEFAULT MUST BE THE SAME FOR EVERY CALL IN A RUN. ONCE EXPORTED, IT CANNOT
++# BE TOLD APART FROM A HOST_CC SET BY THE USER, SO LATER CALLS KEEP IT.
++#
++# 1. default compiler
++set_host_cc() {
++  export HOST_CC="${HOST_CC:-$1}"
++
++  if [[ -z ${HOST_CC} ]]; then
++    echo -e "\n(*) No C compiler found for the build machine. Install clang or set HOST_CC\n" 1>&2
++    exit 1
++  fi
++}
++
+ #
+ # 1. key
+ # 2. value
+diff --git a/scripts/windows/ffmpeg.sh b/scripts/windows/ffmpeg.sh
+index 098940a..1ac769b 100755
+--- a/scripts/windows/ffmpeg.sh
++++ b/scripts/windows/ffmpeg.sh
+@@ -516,7 +516,7 @@ fi
+   --ar="${AR}" \
+   --cc="${CC}" \
+   --cxx="${CXX}" \
+-  --host-cc="${CC}" \
++  --host-cc="${HOST_CC}" \
+   --ranlib="${RANLIB}" \
+   --strip="${STRIP}" \
+   --nm="${NM}" \

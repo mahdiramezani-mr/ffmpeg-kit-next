@@ -1,0 +1,4758 @@
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/cmdutils.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/cmdutils.c
+index 839bbd3..bc3cd46 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/cmdutils.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/cmdutils.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/cmdutils.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/cmdutils.h
+index af2d219..9cba838 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/cmdutils.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/cmdutils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.c
+index 09e1dd9..00c2c3a 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.h
+index 46cc73f..e87f731 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_dec.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_dec.c
+index 68e91b7..d3eeb41 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_dec.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_dec.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_demux.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_demux.c
+index 76dd4f4..d66ad06 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_demux.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_demux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -2116,6 +2120,11 @@ int ifile_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(d, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     if (o->format) {
+         if (!(file_iformat = av_find_input_format(o->format))) {
+             av_log(d, AV_LOG_FATAL, "Unknown input format: '%s'\n", o->format);
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_enc.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_enc.c
+index 6dc7550..d5aa664 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_enc.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_enc.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_filter.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_filter.c
+index 74d3699..f3464f5 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_filter.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_filter.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_hw.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_hw.c
+index 9ac99e2..ae9f1aa 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_hw.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_hw.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux.c
+index 86c4d25..3611108 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux.h
+index 003149b..15820b0 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux_init.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux_init.c
+index 79d2cac..481939e 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux_init.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_mux_init.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -1195,7 +1199,7 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     int threads_manual = 0;
+     AVRational enc_tb = { 0, 0 };
+     enum VideoSyncMethod vsync_method = VSYNC_AUTO;
+-    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL;
++    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL, *manual_disp = NULL;
+     char  *next;
+     double qscale = -1;
+ 
+@@ -1252,6 +1256,20 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     ms->par_in->codec_type   = type;
+     st->codecpar->codec_type = type;
+ 
++    if (ost->type == AVMEDIA_TYPE_VIDEO) {
++        if (ost->ist)
++            ost->st->disposition = ost->ist->st->disposition;
++
++        opt_match_per_stream_str(ost, &o->disposition, oc, st, &manual_disp);
++        if (manual_disp) {
++            ret = av_opt_set(ost->st, "disposition", manual_disp, 0);
++            if (ret < 0)
++                return ret;
++        }
++
++        ost->st->disposition &= AV_DISPOSITION_ATTACHED_PIC;
++    }
++
+     ret = choose_encoder(o, oc, ms, &enc);
+     if (ret < 0) {
+         av_log(ost, AV_LOG_FATAL, "Error selecting an encoder\n");
+@@ -3100,6 +3118,11 @@ static int set_dispositions(Muxer *mux, const OptionsContext *o)
+     if (!dispositions)
+         return AVERROR(ENOMEM);
+ 
++    // reset any apic flag set for option stream-spec matching in ost_add
++    for (int i = 0; i < ctx->nb_streams; i++) {
++        of->streams[i]->st->disposition = 0;
++    }
++
+     // first, copy the input dispositions
+     for (int i = 0; i < ctx->nb_streams; i++) {
+         OutputStream *ost = of->streams[i];
+@@ -3348,6 +3371,11 @@ int of_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(mux, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     of->recording_time = recording_time;
+     of->start_time     = o->start_time;
+ 
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_opt.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_opt.c
+index 30d1831..e57c8d3 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_opt.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_opt.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_sched.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_sched.c
+index a9dcf3a..5da8577 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_sched.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_sched.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -69,7 +73,6 @@ void *loadFFmpegContext(FFmpegContext *context);
+ #include "libavcodec/packet.h"
+ 
+ #include "libavutil/avassert.h"
+-#include "libavutil/container_fifo.h"
+ #include "libavutil/error.h"
+ #include "libavutil/fifo.h"
+ #include "libavutil/frame.h"
+@@ -124,7 +127,6 @@ typedef struct SchDec {
+     unsigned         nb_outputs;
+ 
+     SchTask             task;
+-    SchWaiter           waiter;
+     // Queue for receiving input packets, one stream.
+     ThreadQueue        *queue;
+ 
+@@ -134,9 +136,6 @@ typedef struct SchDec {
+ 
+     // temporary storage used by sch_dec_send()
+     AVFrame            *send_frame;
+-
+-    // internal queue of undecoded packets used by sch_dec_receive()
+-    AVContainerFifo    *overflow;
+ } SchDec;
+ 
+ typedef struct SchSyncQueue {
+@@ -596,7 +595,6 @@ void sch_free(Scheduler **psch)
+         tq_free(&dec->queue);
+ 
+         av_thread_message_queue_free(&dec->queue_end_ts);
+-        av_container_fifo_free(&dec->overflow);
+ 
+         for (unsigned j = 0; j < dec->nb_outputs; j++) {
+             SchDecOutput *o = &dec->outputs[j];
+@@ -608,8 +606,6 @@ void sch_free(Scheduler **psch)
+         av_freep(&dec->outputs);
+ 
+         av_frame_free(&dec->send_frame);
+-
+-        waiter_uninit(&dec->waiter);
+     }
+     av_freep(&sch->dec);
+ 
+@@ -860,14 +856,6 @@ int sch_add_dec(Scheduler *sch, SchThreadFunc func, void *ctx, int send_end_ts)
+             return ret;
+     }
+ 
+-    dec->overflow = av_container_fifo_alloc_avpacket(0);
+-    if (!dec->overflow)
+-        return AVERROR(ENOMEM);
+-
+-    ret = waiter_init(&dec->waiter);
+-    if (ret < 0)
+-        return ret;
+-
+     return idx;
+ }
+ 
+@@ -1364,9 +1352,8 @@ int sch_mux_sub_heartbeat_add(Scheduler *sch, unsigned mux_idx, unsigned stream_
+ enum {
+     UNCHOKE_DEMUX  = (1 << 0),
+     UNCHOKE_FILTER = (1 << 1),
+-    UNCHOKE_DECODE = (1 << 2),
+ 
+-    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER | UNCHOKE_DECODE,
++    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER,
+ };
+ 
+ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags);
+@@ -1381,10 +1368,8 @@ static void unchoke_downstream(Scheduler *sch, SchedulerNode *dst)
+     switch (dst->type) {
+     case SCH_NODE_TYPE_DEC:
+         dec = &sch->dec[dst->idx];
+-        if (!dec->waiter.choked_next) {
+-            for (int i = 0; i < dec->nb_outputs; i++)
+-                unchoke_downstream(sch, dec->outputs[i].dst);
+-        }
++        for (int i = 0; i < dec->nb_outputs; i++)
++            unchoke_downstream(sch, dec->outputs[i].dst);
+         break;
+     case SCH_NODE_TYPE_ENC:
+         enc = &sch->enc[dst->idx];
+@@ -1415,7 +1400,6 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+     while (1) {
+         SchFilterGraph *fg;
+         SchDemux *demux;
+-        SchDec *dec;
+         switch (src.type) {
+         case SCH_NODE_TYPE_DEMUX:
+             // fed directly by a demuxer (i.e. not through a filtergraph)
+@@ -1429,11 +1413,7 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+             }
+             return;
+         case SCH_NODE_TYPE_DEC:
+-            dec = &sch->dec[src.idx];
+-            if (!(flags & UNCHOKE_DECODE))
+-                return;
+-            dec->waiter.choked_next = 0;
+-            src = dec->src;
++            src = sch->dec[src.idx].src;
+             continue;
+         case SCH_NODE_TYPE_ENC:
+             src = sch->enc[src.idx].src;
+@@ -1512,7 +1492,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     RESET_WAITER(demux);
+     RESET_WAITER(filters);
+-    RESET_WAITER(dec);
+ 
+     // figure out the sources that are allowed to proceed
+     for (unsigned i = 0; i < sch->nb_mux; i++) {
+@@ -1523,11 +1502,8 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+             // unblock sources for output streams that are not finished
+             // and not too far ahead of the trailing stream
+-            if (ms->source_finished) {
+-                // still allow decoders to drain
+-                unchoke_for_stream(sch, ms->src, UNCHOKE_DECODE);
++            if (ms->source_finished)
+                 continue;
+-            }
+             if (dts == AV_NOPTS_VALUE && ms->last_dts != AV_NOPTS_VALUE)
+                 continue;
+             if (dts != AV_NOPTS_VALUE && ms->last_dts - dts >= SCHEDULE_TOLERANCE)
+@@ -1581,7 +1557,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     UPDATE_WAITER(demux);
+     UPDATE_WAITER(filters);
+-    UPDATE_WAITER(dec);
+ }
+ 
+ enum {
+@@ -2384,12 +2359,6 @@ int sch_dec_receive(Scheduler *sch, unsigned dec_idx, AVPacket *pkt)
+     av_assert0(dec_idx < sch->nb_dec);
+     dec = &sch->dec[dec_idx];
+ 
+-retry:
+-    // Pull a packet from the overflow FIFO while unchoked or expecting EOF ts
+-    if (av_container_fifo_can_read(dec->overflow) &&
+-        (!atomic_load(&dec->waiter.choked) || dec->expect_end_ts))
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-
+     // the decoder should have given us post-flush end timestamp in pkt
+     if (dec->expect_end_ts) {
+         Timestamp ts = (Timestamp){ .ts = pkt->pts, .tb = pkt->time_base };
+@@ -2403,29 +2372,11 @@ retry:
+     ret = tq_receive(dec->queue, &dummy, pkt, 0);
+     av_assert0(dummy <= 0);
+ 
+-    // drain packets from overflow queue before returning EOF
+-    if (ret == AVERROR_EOF && av_container_fifo_can_read(dec->overflow)) {
+-        int terminate = waiter_wait(sch, &dec->waiter);
+-        if (terminate)
+-            return ret;
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-    } else if (ret < 0)
+-        return ret;
+-
+     // got a flush packet, on the next call to this function the decoder
+-    // should give us post-flush end timestamp (after draining overflow fifo)
+-    if (!pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
++    // will give us post-flush end timestamp
++    if (ret >= 0 && !pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
+         dec->expect_end_ts = 1;
+ 
+-    // we got a packet, but we're currently choked or have existing overflow
+-    // packets; so push it to the FIFO first
+-    if (atomic_load(&dec->waiter.choked) || av_container_fifo_can_read(dec->overflow)) {
+-        ret = av_container_fifo_write(dec->overflow, pkt, 0);
+-        if (ret < 0)
+-            return ret;
+-        goto retry;
+-    }
+-
+     return ret;
+ }
+ 
+@@ -2886,9 +2837,6 @@ int sch_stop(Scheduler *sch, int64_t *finish_ts)
+                 choke_demux(sch, i, 0); // unfreeze to allow draining
+         }
+ 
+-    for (unsigned i = 0; i < sch->nb_dec; i++)
+-        waiter_set(&sch->dec[i].waiter, 0); // unfreeze to allow draining
+-
+     pthread_mutex_unlock(&sch->schedule_lock);
+ 
+     for (unsigned i = 0; i < sch->nb_demux; i++) {
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_sched.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_sched.h
+index e139c16..161d765 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_sched.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_sched.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_utils.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_utils.h
+index fab1997..0b058e3 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_utils.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffmpeg_utils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffprobe.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffprobe.c
+index 1e3a071..fcd92f5 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffprobe.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/ffprobe.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/fopen_utf8.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/fopen_utf8.h
+index 0fdb43f..b247069 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/fopen_utf8.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/fopen_utf8.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/graph/graphprint.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/graph/graphprint.c
+index 0046ac7..a2c8b39 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/graph/graphprint.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/graph/graphprint.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/opt_common.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/opt_common.c
+index 22be267..6df3559 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/opt_common.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/opt_common.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/opt_common.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/opt_common.h
+index 157f9e8..44f3263 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/opt_common.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/opt_common.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2022, 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/graph_resources.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/graph_resources.c
+index c8c79cf..66d2b0d 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/graph_resources.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/graph_resources.c
+@@ -7,7 +7,7 @@
+  *
+  * This generated file is part of FFmpegKitNext.
+  * It is generated from FFmpeg's fftools/resources/graph.css and
+- * fftools/resources/graph.html at tag n9.0.1.
++ * fftools/resources/graph.html at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/resman.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/resman.c
+index 9fc4e3f..c6bceed 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/resman.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/resman.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/resman.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/resman.h
+index 2be2308..3dbf441 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/resman.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/resources/resman.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/sync_queue.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/sync_queue.c
+index 856d76f..97b5f8d 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/sync_queue.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/sync_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/sync_queue.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/sync_queue.h
+index f1cab7b..394cfaf 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/sync_queue.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/sync_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/textformat/tw_stdout.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/textformat/tw_stdout.c
+index 94bc8a9..fbe5c12 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/textformat/tw_stdout.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/textformat/tw_stdout.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/thread_queue.c b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/thread_queue.c
+index 94e3d42..837508e 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/thread_queue.c
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/thread_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/thread_queue.h b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/thread_queue.h
+index ac2bc48..5737d69 100644
+--- a/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/thread_queue.h
++++ b/android/ffmpeg-kit-next-android-lib/src/main/cpp/fftools/thread_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/cmdutils.c b/apple/src/fftools/cmdutils.c
+index 998cbf1..5c7fdd5 100644
+--- a/apple/src/fftools/cmdutils.c
++++ b/apple/src/fftools/cmdutils.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/cmdutils.h b/apple/src/fftools/cmdutils.h
+index af2d219..9cba838 100644
+--- a/apple/src/fftools/cmdutils.h
++++ b/apple/src/fftools/cmdutils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg.c b/apple/src/fftools/ffmpeg.c
+index 09e1dd9..00c2c3a 100644
+--- a/apple/src/fftools/ffmpeg.c
++++ b/apple/src/fftools/ffmpeg.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg.h b/apple/src/fftools/ffmpeg.h
+index 46cc73f..e87f731 100644
+--- a/apple/src/fftools/ffmpeg.h
++++ b/apple/src/fftools/ffmpeg.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg_dec.c b/apple/src/fftools/ffmpeg_dec.c
+index 68e91b7..d3eeb41 100644
+--- a/apple/src/fftools/ffmpeg_dec.c
++++ b/apple/src/fftools/ffmpeg_dec.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg_demux.c b/apple/src/fftools/ffmpeg_demux.c
+index 76dd4f4..d66ad06 100644
+--- a/apple/src/fftools/ffmpeg_demux.c
++++ b/apple/src/fftools/ffmpeg_demux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -2116,6 +2120,11 @@ int ifile_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(d, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     if (o->format) {
+         if (!(file_iformat = av_find_input_format(o->format))) {
+             av_log(d, AV_LOG_FATAL, "Unknown input format: '%s'\n", o->format);
+diff --git a/apple/src/fftools/ffmpeg_enc.c b/apple/src/fftools/ffmpeg_enc.c
+index 6dc7550..d5aa664 100644
+--- a/apple/src/fftools/ffmpeg_enc.c
++++ b/apple/src/fftools/ffmpeg_enc.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg_filter.c b/apple/src/fftools/ffmpeg_filter.c
+index 74d3699..f3464f5 100644
+--- a/apple/src/fftools/ffmpeg_filter.c
++++ b/apple/src/fftools/ffmpeg_filter.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg_hw.c b/apple/src/fftools/ffmpeg_hw.c
+index 9ac99e2..ae9f1aa 100644
+--- a/apple/src/fftools/ffmpeg_hw.c
++++ b/apple/src/fftools/ffmpeg_hw.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg_mux.c b/apple/src/fftools/ffmpeg_mux.c
+index 86c4d25..3611108 100644
+--- a/apple/src/fftools/ffmpeg_mux.c
++++ b/apple/src/fftools/ffmpeg_mux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg_mux.h b/apple/src/fftools/ffmpeg_mux.h
+index 003149b..15820b0 100644
+--- a/apple/src/fftools/ffmpeg_mux.h
++++ b/apple/src/fftools/ffmpeg_mux.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg_mux_init.c b/apple/src/fftools/ffmpeg_mux_init.c
+index 79d2cac..481939e 100644
+--- a/apple/src/fftools/ffmpeg_mux_init.c
++++ b/apple/src/fftools/ffmpeg_mux_init.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -1195,7 +1199,7 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     int threads_manual = 0;
+     AVRational enc_tb = { 0, 0 };
+     enum VideoSyncMethod vsync_method = VSYNC_AUTO;
+-    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL;
++    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL, *manual_disp = NULL;
+     char  *next;
+     double qscale = -1;
+ 
+@@ -1252,6 +1256,20 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     ms->par_in->codec_type   = type;
+     st->codecpar->codec_type = type;
+ 
++    if (ost->type == AVMEDIA_TYPE_VIDEO) {
++        if (ost->ist)
++            ost->st->disposition = ost->ist->st->disposition;
++
++        opt_match_per_stream_str(ost, &o->disposition, oc, st, &manual_disp);
++        if (manual_disp) {
++            ret = av_opt_set(ost->st, "disposition", manual_disp, 0);
++            if (ret < 0)
++                return ret;
++        }
++
++        ost->st->disposition &= AV_DISPOSITION_ATTACHED_PIC;
++    }
++
+     ret = choose_encoder(o, oc, ms, &enc);
+     if (ret < 0) {
+         av_log(ost, AV_LOG_FATAL, "Error selecting an encoder\n");
+@@ -3100,6 +3118,11 @@ static int set_dispositions(Muxer *mux, const OptionsContext *o)
+     if (!dispositions)
+         return AVERROR(ENOMEM);
+ 
++    // reset any apic flag set for option stream-spec matching in ost_add
++    for (int i = 0; i < ctx->nb_streams; i++) {
++        of->streams[i]->st->disposition = 0;
++    }
++
+     // first, copy the input dispositions
+     for (int i = 0; i < ctx->nb_streams; i++) {
+         OutputStream *ost = of->streams[i];
+@@ -3348,6 +3371,11 @@ int of_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(mux, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     of->recording_time = recording_time;
+     of->start_time     = o->start_time;
+ 
+diff --git a/apple/src/fftools/ffmpeg_opt.c b/apple/src/fftools/ffmpeg_opt.c
+index 30d1831..e57c8d3 100644
+--- a/apple/src/fftools/ffmpeg_opt.c
++++ b/apple/src/fftools/ffmpeg_opt.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg_sched.c b/apple/src/fftools/ffmpeg_sched.c
+index a9dcf3a..5da8577 100644
+--- a/apple/src/fftools/ffmpeg_sched.c
++++ b/apple/src/fftools/ffmpeg_sched.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -69,7 +73,6 @@ void *loadFFmpegContext(FFmpegContext *context);
+ #include "libavcodec/packet.h"
+ 
+ #include "libavutil/avassert.h"
+-#include "libavutil/container_fifo.h"
+ #include "libavutil/error.h"
+ #include "libavutil/fifo.h"
+ #include "libavutil/frame.h"
+@@ -124,7 +127,6 @@ typedef struct SchDec {
+     unsigned         nb_outputs;
+ 
+     SchTask             task;
+-    SchWaiter           waiter;
+     // Queue for receiving input packets, one stream.
+     ThreadQueue        *queue;
+ 
+@@ -134,9 +136,6 @@ typedef struct SchDec {
+ 
+     // temporary storage used by sch_dec_send()
+     AVFrame            *send_frame;
+-
+-    // internal queue of undecoded packets used by sch_dec_receive()
+-    AVContainerFifo    *overflow;
+ } SchDec;
+ 
+ typedef struct SchSyncQueue {
+@@ -596,7 +595,6 @@ void sch_free(Scheduler **psch)
+         tq_free(&dec->queue);
+ 
+         av_thread_message_queue_free(&dec->queue_end_ts);
+-        av_container_fifo_free(&dec->overflow);
+ 
+         for (unsigned j = 0; j < dec->nb_outputs; j++) {
+             SchDecOutput *o = &dec->outputs[j];
+@@ -608,8 +606,6 @@ void sch_free(Scheduler **psch)
+         av_freep(&dec->outputs);
+ 
+         av_frame_free(&dec->send_frame);
+-
+-        waiter_uninit(&dec->waiter);
+     }
+     av_freep(&sch->dec);
+ 
+@@ -860,14 +856,6 @@ int sch_add_dec(Scheduler *sch, SchThreadFunc func, void *ctx, int send_end_ts)
+             return ret;
+     }
+ 
+-    dec->overflow = av_container_fifo_alloc_avpacket(0);
+-    if (!dec->overflow)
+-        return AVERROR(ENOMEM);
+-
+-    ret = waiter_init(&dec->waiter);
+-    if (ret < 0)
+-        return ret;
+-
+     return idx;
+ }
+ 
+@@ -1364,9 +1352,8 @@ int sch_mux_sub_heartbeat_add(Scheduler *sch, unsigned mux_idx, unsigned stream_
+ enum {
+     UNCHOKE_DEMUX  = (1 << 0),
+     UNCHOKE_FILTER = (1 << 1),
+-    UNCHOKE_DECODE = (1 << 2),
+ 
+-    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER | UNCHOKE_DECODE,
++    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER,
+ };
+ 
+ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags);
+@@ -1381,10 +1368,8 @@ static void unchoke_downstream(Scheduler *sch, SchedulerNode *dst)
+     switch (dst->type) {
+     case SCH_NODE_TYPE_DEC:
+         dec = &sch->dec[dst->idx];
+-        if (!dec->waiter.choked_next) {
+-            for (int i = 0; i < dec->nb_outputs; i++)
+-                unchoke_downstream(sch, dec->outputs[i].dst);
+-        }
++        for (int i = 0; i < dec->nb_outputs; i++)
++            unchoke_downstream(sch, dec->outputs[i].dst);
+         break;
+     case SCH_NODE_TYPE_ENC:
+         enc = &sch->enc[dst->idx];
+@@ -1415,7 +1400,6 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+     while (1) {
+         SchFilterGraph *fg;
+         SchDemux *demux;
+-        SchDec *dec;
+         switch (src.type) {
+         case SCH_NODE_TYPE_DEMUX:
+             // fed directly by a demuxer (i.e. not through a filtergraph)
+@@ -1429,11 +1413,7 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+             }
+             return;
+         case SCH_NODE_TYPE_DEC:
+-            dec = &sch->dec[src.idx];
+-            if (!(flags & UNCHOKE_DECODE))
+-                return;
+-            dec->waiter.choked_next = 0;
+-            src = dec->src;
++            src = sch->dec[src.idx].src;
+             continue;
+         case SCH_NODE_TYPE_ENC:
+             src = sch->enc[src.idx].src;
+@@ -1512,7 +1492,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     RESET_WAITER(demux);
+     RESET_WAITER(filters);
+-    RESET_WAITER(dec);
+ 
+     // figure out the sources that are allowed to proceed
+     for (unsigned i = 0; i < sch->nb_mux; i++) {
+@@ -1523,11 +1502,8 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+             // unblock sources for output streams that are not finished
+             // and not too far ahead of the trailing stream
+-            if (ms->source_finished) {
+-                // still allow decoders to drain
+-                unchoke_for_stream(sch, ms->src, UNCHOKE_DECODE);
++            if (ms->source_finished)
+                 continue;
+-            }
+             if (dts == AV_NOPTS_VALUE && ms->last_dts != AV_NOPTS_VALUE)
+                 continue;
+             if (dts != AV_NOPTS_VALUE && ms->last_dts - dts >= SCHEDULE_TOLERANCE)
+@@ -1581,7 +1557,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     UPDATE_WAITER(demux);
+     UPDATE_WAITER(filters);
+-    UPDATE_WAITER(dec);
+ }
+ 
+ enum {
+@@ -2384,12 +2359,6 @@ int sch_dec_receive(Scheduler *sch, unsigned dec_idx, AVPacket *pkt)
+     av_assert0(dec_idx < sch->nb_dec);
+     dec = &sch->dec[dec_idx];
+ 
+-retry:
+-    // Pull a packet from the overflow FIFO while unchoked or expecting EOF ts
+-    if (av_container_fifo_can_read(dec->overflow) &&
+-        (!atomic_load(&dec->waiter.choked) || dec->expect_end_ts))
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-
+     // the decoder should have given us post-flush end timestamp in pkt
+     if (dec->expect_end_ts) {
+         Timestamp ts = (Timestamp){ .ts = pkt->pts, .tb = pkt->time_base };
+@@ -2403,29 +2372,11 @@ retry:
+     ret = tq_receive(dec->queue, &dummy, pkt, 0);
+     av_assert0(dummy <= 0);
+ 
+-    // drain packets from overflow queue before returning EOF
+-    if (ret == AVERROR_EOF && av_container_fifo_can_read(dec->overflow)) {
+-        int terminate = waiter_wait(sch, &dec->waiter);
+-        if (terminate)
+-            return ret;
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-    } else if (ret < 0)
+-        return ret;
+-
+     // got a flush packet, on the next call to this function the decoder
+-    // should give us post-flush end timestamp (after draining overflow fifo)
+-    if (!pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
++    // will give us post-flush end timestamp
++    if (ret >= 0 && !pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
+         dec->expect_end_ts = 1;
+ 
+-    // we got a packet, but we're currently choked or have existing overflow
+-    // packets; so push it to the FIFO first
+-    if (atomic_load(&dec->waiter.choked) || av_container_fifo_can_read(dec->overflow)) {
+-        ret = av_container_fifo_write(dec->overflow, pkt, 0);
+-        if (ret < 0)
+-            return ret;
+-        goto retry;
+-    }
+-
+     return ret;
+ }
+ 
+@@ -2886,9 +2837,6 @@ int sch_stop(Scheduler *sch, int64_t *finish_ts)
+                 choke_demux(sch, i, 0); // unfreeze to allow draining
+         }
+ 
+-    for (unsigned i = 0; i < sch->nb_dec; i++)
+-        waiter_set(&sch->dec[i].waiter, 0); // unfreeze to allow draining
+-
+     pthread_mutex_unlock(&sch->schedule_lock);
+ 
+     for (unsigned i = 0; i < sch->nb_demux; i++) {
+diff --git a/apple/src/fftools/ffmpeg_sched.h b/apple/src/fftools/ffmpeg_sched.h
+index e139c16..161d765 100644
+--- a/apple/src/fftools/ffmpeg_sched.h
++++ b/apple/src/fftools/ffmpeg_sched.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffmpeg_utils.h b/apple/src/fftools/ffmpeg_utils.h
+index fab1997..0b058e3 100644
+--- a/apple/src/fftools/ffmpeg_utils.h
++++ b/apple/src/fftools/ffmpeg_utils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/ffprobe.c b/apple/src/fftools/ffprobe.c
+index 1e3a071..fcd92f5 100644
+--- a/apple/src/fftools/ffprobe.c
++++ b/apple/src/fftools/ffprobe.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/fopen_utf8.h b/apple/src/fftools/fopen_utf8.h
+index 0fdb43f..b247069 100644
+--- a/apple/src/fftools/fopen_utf8.h
++++ b/apple/src/fftools/fopen_utf8.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/graph/graphprint.c b/apple/src/fftools/graph/graphprint.c
+index 0046ac7..a2c8b39 100644
+--- a/apple/src/fftools/graph/graphprint.c
++++ b/apple/src/fftools/graph/graphprint.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/opt_common.c b/apple/src/fftools/opt_common.c
+index 22be267..6df3559 100644
+--- a/apple/src/fftools/opt_common.c
++++ b/apple/src/fftools/opt_common.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/opt_common.h b/apple/src/fftools/opt_common.h
+index 157f9e8..44f3263 100644
+--- a/apple/src/fftools/opt_common.h
++++ b/apple/src/fftools/opt_common.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2022, 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/resources/graph_resources.c b/apple/src/fftools/resources/graph_resources.c
+index c8c79cf..66d2b0d 100644
+--- a/apple/src/fftools/resources/graph_resources.c
++++ b/apple/src/fftools/resources/graph_resources.c
+@@ -7,7 +7,7 @@
+  *
+  * This generated file is part of FFmpegKitNext.
+  * It is generated from FFmpeg's fftools/resources/graph.css and
+- * fftools/resources/graph.html at tag n9.0.1.
++ * fftools/resources/graph.html at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/resources/resman.c b/apple/src/fftools/resources/resman.c
+index 9fc4e3f..c6bceed 100644
+--- a/apple/src/fftools/resources/resman.c
++++ b/apple/src/fftools/resources/resman.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/resources/resman.h b/apple/src/fftools/resources/resman.h
+index 2be2308..3dbf441 100644
+--- a/apple/src/fftools/resources/resman.h
++++ b/apple/src/fftools/resources/resman.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/sync_queue.c b/apple/src/fftools/sync_queue.c
+index 856d76f..97b5f8d 100644
+--- a/apple/src/fftools/sync_queue.c
++++ b/apple/src/fftools/sync_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/sync_queue.h b/apple/src/fftools/sync_queue.h
+index f1cab7b..394cfaf 100644
+--- a/apple/src/fftools/sync_queue.h
++++ b/apple/src/fftools/sync_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/textformat/tw_stdout.c b/apple/src/fftools/textformat/tw_stdout.c
+index 94bc8a9..fbe5c12 100644
+--- a/apple/src/fftools/textformat/tw_stdout.c
++++ b/apple/src/fftools/textformat/tw_stdout.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/thread_queue.c b/apple/src/fftools/thread_queue.c
+index 94e3d42..837508e 100644
+--- a/apple/src/fftools/thread_queue.c
++++ b/apple/src/fftools/thread_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/apple/src/fftools/thread_queue.h b/apple/src/fftools/thread_queue.h
+index ac2bc48..5737d69 100644
+--- a/apple/src/fftools/thread_queue.h
++++ b/apple/src/fftools/thread_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/cmdutils.c b/linux/src/fftools/cmdutils.c
+index 839bbd3..bc3cd46 100644
+--- a/linux/src/fftools/cmdutils.c
++++ b/linux/src/fftools/cmdutils.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/cmdutils.h b/linux/src/fftools/cmdutils.h
+index af2d219..9cba838 100644
+--- a/linux/src/fftools/cmdutils.h
++++ b/linux/src/fftools/cmdutils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg.c b/linux/src/fftools/ffmpeg.c
+index 09e1dd9..00c2c3a 100644
+--- a/linux/src/fftools/ffmpeg.c
++++ b/linux/src/fftools/ffmpeg.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg.h b/linux/src/fftools/ffmpeg.h
+index 46cc73f..e87f731 100644
+--- a/linux/src/fftools/ffmpeg.h
++++ b/linux/src/fftools/ffmpeg.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg_dec.c b/linux/src/fftools/ffmpeg_dec.c
+index 68e91b7..d3eeb41 100644
+--- a/linux/src/fftools/ffmpeg_dec.c
++++ b/linux/src/fftools/ffmpeg_dec.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg_demux.c b/linux/src/fftools/ffmpeg_demux.c
+index 76dd4f4..d66ad06 100644
+--- a/linux/src/fftools/ffmpeg_demux.c
++++ b/linux/src/fftools/ffmpeg_demux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -2116,6 +2120,11 @@ int ifile_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(d, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     if (o->format) {
+         if (!(file_iformat = av_find_input_format(o->format))) {
+             av_log(d, AV_LOG_FATAL, "Unknown input format: '%s'\n", o->format);
+diff --git a/linux/src/fftools/ffmpeg_enc.c b/linux/src/fftools/ffmpeg_enc.c
+index 6dc7550..d5aa664 100644
+--- a/linux/src/fftools/ffmpeg_enc.c
++++ b/linux/src/fftools/ffmpeg_enc.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg_filter.c b/linux/src/fftools/ffmpeg_filter.c
+index 74d3699..f3464f5 100644
+--- a/linux/src/fftools/ffmpeg_filter.c
++++ b/linux/src/fftools/ffmpeg_filter.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg_hw.c b/linux/src/fftools/ffmpeg_hw.c
+index 9ac99e2..ae9f1aa 100644
+--- a/linux/src/fftools/ffmpeg_hw.c
++++ b/linux/src/fftools/ffmpeg_hw.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg_mux.c b/linux/src/fftools/ffmpeg_mux.c
+index 86c4d25..3611108 100644
+--- a/linux/src/fftools/ffmpeg_mux.c
++++ b/linux/src/fftools/ffmpeg_mux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg_mux.h b/linux/src/fftools/ffmpeg_mux.h
+index 003149b..15820b0 100644
+--- a/linux/src/fftools/ffmpeg_mux.h
++++ b/linux/src/fftools/ffmpeg_mux.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg_mux_init.c b/linux/src/fftools/ffmpeg_mux_init.c
+index 79d2cac..481939e 100644
+--- a/linux/src/fftools/ffmpeg_mux_init.c
++++ b/linux/src/fftools/ffmpeg_mux_init.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -1195,7 +1199,7 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     int threads_manual = 0;
+     AVRational enc_tb = { 0, 0 };
+     enum VideoSyncMethod vsync_method = VSYNC_AUTO;
+-    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL;
++    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL, *manual_disp = NULL;
+     char  *next;
+     double qscale = -1;
+ 
+@@ -1252,6 +1256,20 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     ms->par_in->codec_type   = type;
+     st->codecpar->codec_type = type;
+ 
++    if (ost->type == AVMEDIA_TYPE_VIDEO) {
++        if (ost->ist)
++            ost->st->disposition = ost->ist->st->disposition;
++
++        opt_match_per_stream_str(ost, &o->disposition, oc, st, &manual_disp);
++        if (manual_disp) {
++            ret = av_opt_set(ost->st, "disposition", manual_disp, 0);
++            if (ret < 0)
++                return ret;
++        }
++
++        ost->st->disposition &= AV_DISPOSITION_ATTACHED_PIC;
++    }
++
+     ret = choose_encoder(o, oc, ms, &enc);
+     if (ret < 0) {
+         av_log(ost, AV_LOG_FATAL, "Error selecting an encoder\n");
+@@ -3100,6 +3118,11 @@ static int set_dispositions(Muxer *mux, const OptionsContext *o)
+     if (!dispositions)
+         return AVERROR(ENOMEM);
+ 
++    // reset any apic flag set for option stream-spec matching in ost_add
++    for (int i = 0; i < ctx->nb_streams; i++) {
++        of->streams[i]->st->disposition = 0;
++    }
++
+     // first, copy the input dispositions
+     for (int i = 0; i < ctx->nb_streams; i++) {
+         OutputStream *ost = of->streams[i];
+@@ -3348,6 +3371,11 @@ int of_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(mux, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     of->recording_time = recording_time;
+     of->start_time     = o->start_time;
+ 
+diff --git a/linux/src/fftools/ffmpeg_opt.c b/linux/src/fftools/ffmpeg_opt.c
+index 30d1831..e57c8d3 100644
+--- a/linux/src/fftools/ffmpeg_opt.c
++++ b/linux/src/fftools/ffmpeg_opt.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg_sched.c b/linux/src/fftools/ffmpeg_sched.c
+index a9dcf3a..5da8577 100644
+--- a/linux/src/fftools/ffmpeg_sched.c
++++ b/linux/src/fftools/ffmpeg_sched.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -69,7 +73,6 @@ void *loadFFmpegContext(FFmpegContext *context);
+ #include "libavcodec/packet.h"
+ 
+ #include "libavutil/avassert.h"
+-#include "libavutil/container_fifo.h"
+ #include "libavutil/error.h"
+ #include "libavutil/fifo.h"
+ #include "libavutil/frame.h"
+@@ -124,7 +127,6 @@ typedef struct SchDec {
+     unsigned         nb_outputs;
+ 
+     SchTask             task;
+-    SchWaiter           waiter;
+     // Queue for receiving input packets, one stream.
+     ThreadQueue        *queue;
+ 
+@@ -134,9 +136,6 @@ typedef struct SchDec {
+ 
+     // temporary storage used by sch_dec_send()
+     AVFrame            *send_frame;
+-
+-    // internal queue of undecoded packets used by sch_dec_receive()
+-    AVContainerFifo    *overflow;
+ } SchDec;
+ 
+ typedef struct SchSyncQueue {
+@@ -596,7 +595,6 @@ void sch_free(Scheduler **psch)
+         tq_free(&dec->queue);
+ 
+         av_thread_message_queue_free(&dec->queue_end_ts);
+-        av_container_fifo_free(&dec->overflow);
+ 
+         for (unsigned j = 0; j < dec->nb_outputs; j++) {
+             SchDecOutput *o = &dec->outputs[j];
+@@ -608,8 +606,6 @@ void sch_free(Scheduler **psch)
+         av_freep(&dec->outputs);
+ 
+         av_frame_free(&dec->send_frame);
+-
+-        waiter_uninit(&dec->waiter);
+     }
+     av_freep(&sch->dec);
+ 
+@@ -860,14 +856,6 @@ int sch_add_dec(Scheduler *sch, SchThreadFunc func, void *ctx, int send_end_ts)
+             return ret;
+     }
+ 
+-    dec->overflow = av_container_fifo_alloc_avpacket(0);
+-    if (!dec->overflow)
+-        return AVERROR(ENOMEM);
+-
+-    ret = waiter_init(&dec->waiter);
+-    if (ret < 0)
+-        return ret;
+-
+     return idx;
+ }
+ 
+@@ -1364,9 +1352,8 @@ int sch_mux_sub_heartbeat_add(Scheduler *sch, unsigned mux_idx, unsigned stream_
+ enum {
+     UNCHOKE_DEMUX  = (1 << 0),
+     UNCHOKE_FILTER = (1 << 1),
+-    UNCHOKE_DECODE = (1 << 2),
+ 
+-    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER | UNCHOKE_DECODE,
++    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER,
+ };
+ 
+ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags);
+@@ -1381,10 +1368,8 @@ static void unchoke_downstream(Scheduler *sch, SchedulerNode *dst)
+     switch (dst->type) {
+     case SCH_NODE_TYPE_DEC:
+         dec = &sch->dec[dst->idx];
+-        if (!dec->waiter.choked_next) {
+-            for (int i = 0; i < dec->nb_outputs; i++)
+-                unchoke_downstream(sch, dec->outputs[i].dst);
+-        }
++        for (int i = 0; i < dec->nb_outputs; i++)
++            unchoke_downstream(sch, dec->outputs[i].dst);
+         break;
+     case SCH_NODE_TYPE_ENC:
+         enc = &sch->enc[dst->idx];
+@@ -1415,7 +1400,6 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+     while (1) {
+         SchFilterGraph *fg;
+         SchDemux *demux;
+-        SchDec *dec;
+         switch (src.type) {
+         case SCH_NODE_TYPE_DEMUX:
+             // fed directly by a demuxer (i.e. not through a filtergraph)
+@@ -1429,11 +1413,7 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+             }
+             return;
+         case SCH_NODE_TYPE_DEC:
+-            dec = &sch->dec[src.idx];
+-            if (!(flags & UNCHOKE_DECODE))
+-                return;
+-            dec->waiter.choked_next = 0;
+-            src = dec->src;
++            src = sch->dec[src.idx].src;
+             continue;
+         case SCH_NODE_TYPE_ENC:
+             src = sch->enc[src.idx].src;
+@@ -1512,7 +1492,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     RESET_WAITER(demux);
+     RESET_WAITER(filters);
+-    RESET_WAITER(dec);
+ 
+     // figure out the sources that are allowed to proceed
+     for (unsigned i = 0; i < sch->nb_mux; i++) {
+@@ -1523,11 +1502,8 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+             // unblock sources for output streams that are not finished
+             // and not too far ahead of the trailing stream
+-            if (ms->source_finished) {
+-                // still allow decoders to drain
+-                unchoke_for_stream(sch, ms->src, UNCHOKE_DECODE);
++            if (ms->source_finished)
+                 continue;
+-            }
+             if (dts == AV_NOPTS_VALUE && ms->last_dts != AV_NOPTS_VALUE)
+                 continue;
+             if (dts != AV_NOPTS_VALUE && ms->last_dts - dts >= SCHEDULE_TOLERANCE)
+@@ -1581,7 +1557,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     UPDATE_WAITER(demux);
+     UPDATE_WAITER(filters);
+-    UPDATE_WAITER(dec);
+ }
+ 
+ enum {
+@@ -2384,12 +2359,6 @@ int sch_dec_receive(Scheduler *sch, unsigned dec_idx, AVPacket *pkt)
+     av_assert0(dec_idx < sch->nb_dec);
+     dec = &sch->dec[dec_idx];
+ 
+-retry:
+-    // Pull a packet from the overflow FIFO while unchoked or expecting EOF ts
+-    if (av_container_fifo_can_read(dec->overflow) &&
+-        (!atomic_load(&dec->waiter.choked) || dec->expect_end_ts))
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-
+     // the decoder should have given us post-flush end timestamp in pkt
+     if (dec->expect_end_ts) {
+         Timestamp ts = (Timestamp){ .ts = pkt->pts, .tb = pkt->time_base };
+@@ -2403,29 +2372,11 @@ retry:
+     ret = tq_receive(dec->queue, &dummy, pkt, 0);
+     av_assert0(dummy <= 0);
+ 
+-    // drain packets from overflow queue before returning EOF
+-    if (ret == AVERROR_EOF && av_container_fifo_can_read(dec->overflow)) {
+-        int terminate = waiter_wait(sch, &dec->waiter);
+-        if (terminate)
+-            return ret;
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-    } else if (ret < 0)
+-        return ret;
+-
+     // got a flush packet, on the next call to this function the decoder
+-    // should give us post-flush end timestamp (after draining overflow fifo)
+-    if (!pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
++    // will give us post-flush end timestamp
++    if (ret >= 0 && !pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
+         dec->expect_end_ts = 1;
+ 
+-    // we got a packet, but we're currently choked or have existing overflow
+-    // packets; so push it to the FIFO first
+-    if (atomic_load(&dec->waiter.choked) || av_container_fifo_can_read(dec->overflow)) {
+-        ret = av_container_fifo_write(dec->overflow, pkt, 0);
+-        if (ret < 0)
+-            return ret;
+-        goto retry;
+-    }
+-
+     return ret;
+ }
+ 
+@@ -2886,9 +2837,6 @@ int sch_stop(Scheduler *sch, int64_t *finish_ts)
+                 choke_demux(sch, i, 0); // unfreeze to allow draining
+         }
+ 
+-    for (unsigned i = 0; i < sch->nb_dec; i++)
+-        waiter_set(&sch->dec[i].waiter, 0); // unfreeze to allow draining
+-
+     pthread_mutex_unlock(&sch->schedule_lock);
+ 
+     for (unsigned i = 0; i < sch->nb_demux; i++) {
+diff --git a/linux/src/fftools/ffmpeg_sched.h b/linux/src/fftools/ffmpeg_sched.h
+index e139c16..161d765 100644
+--- a/linux/src/fftools/ffmpeg_sched.h
++++ b/linux/src/fftools/ffmpeg_sched.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffmpeg_utils.h b/linux/src/fftools/ffmpeg_utils.h
+index fab1997..0b058e3 100644
+--- a/linux/src/fftools/ffmpeg_utils.h
++++ b/linux/src/fftools/ffmpeg_utils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/ffprobe.c b/linux/src/fftools/ffprobe.c
+index 1e3a071..fcd92f5 100644
+--- a/linux/src/fftools/ffprobe.c
++++ b/linux/src/fftools/ffprobe.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/fopen_utf8.h b/linux/src/fftools/fopen_utf8.h
+index 0fdb43f..b247069 100644
+--- a/linux/src/fftools/fopen_utf8.h
++++ b/linux/src/fftools/fopen_utf8.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/graph/graphprint.c b/linux/src/fftools/graph/graphprint.c
+index 0046ac7..a2c8b39 100644
+--- a/linux/src/fftools/graph/graphprint.c
++++ b/linux/src/fftools/graph/graphprint.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/opt_common.c b/linux/src/fftools/opt_common.c
+index 22be267..6df3559 100644
+--- a/linux/src/fftools/opt_common.c
++++ b/linux/src/fftools/opt_common.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/opt_common.h b/linux/src/fftools/opt_common.h
+index 157f9e8..44f3263 100644
+--- a/linux/src/fftools/opt_common.h
++++ b/linux/src/fftools/opt_common.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2022, 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/resources/graph_resources.c b/linux/src/fftools/resources/graph_resources.c
+index c8c79cf..66d2b0d 100644
+--- a/linux/src/fftools/resources/graph_resources.c
++++ b/linux/src/fftools/resources/graph_resources.c
+@@ -7,7 +7,7 @@
+  *
+  * This generated file is part of FFmpegKitNext.
+  * It is generated from FFmpeg's fftools/resources/graph.css and
+- * fftools/resources/graph.html at tag n9.0.1.
++ * fftools/resources/graph.html at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/resources/resman.c b/linux/src/fftools/resources/resman.c
+index 9fc4e3f..c6bceed 100644
+--- a/linux/src/fftools/resources/resman.c
++++ b/linux/src/fftools/resources/resman.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/resources/resman.h b/linux/src/fftools/resources/resman.h
+index 2be2308..3dbf441 100644
+--- a/linux/src/fftools/resources/resman.h
++++ b/linux/src/fftools/resources/resman.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/sync_queue.c b/linux/src/fftools/sync_queue.c
+index 856d76f..97b5f8d 100644
+--- a/linux/src/fftools/sync_queue.c
++++ b/linux/src/fftools/sync_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/sync_queue.h b/linux/src/fftools/sync_queue.h
+index f1cab7b..394cfaf 100644
+--- a/linux/src/fftools/sync_queue.h
++++ b/linux/src/fftools/sync_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/textformat/tw_stdout.c b/linux/src/fftools/textformat/tw_stdout.c
+index 94bc8a9..fbe5c12 100644
+--- a/linux/src/fftools/textformat/tw_stdout.c
++++ b/linux/src/fftools/textformat/tw_stdout.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/thread_queue.c b/linux/src/fftools/thread_queue.c
+index 94e3d42..837508e 100644
+--- a/linux/src/fftools/thread_queue.c
++++ b/linux/src/fftools/thread_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/linux/src/fftools/thread_queue.h b/linux/src/fftools/thread_queue.h
+index ac2bc48..5737d69 100644
+--- a/linux/src/fftools/thread_queue.h
++++ b/linux/src/fftools/thread_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/scripts/source.sh b/scripts/source.sh
+index 46fb6c6..05f272d 100755
+--- a/scripts/source.sh
++++ b/scripts/source.sh
+@@ -33,7 +33,7 @@ get_library_source() {
+     ;;
+   ffmpeg)
+     SOURCE_REPO_URL="https://github.com/arthenica/FFmpeg"
+-    SOURCE_ID="n9.0.1"
++    SOURCE_ID="n9.0.2"
+     SOURCE_TYPE="TAG"
+     ;;
+   fontconfig)
+diff --git a/web/src/fftools/cmdutils.c b/web/src/fftools/cmdutils.c
+index 839bbd3..bc3cd46 100644
+--- a/web/src/fftools/cmdutils.c
++++ b/web/src/fftools/cmdutils.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/cmdutils.h b/web/src/fftools/cmdutils.h
+index af2d219..9cba838 100644
+--- a/web/src/fftools/cmdutils.h
++++ b/web/src/fftools/cmdutils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg.c b/web/src/fftools/ffmpeg.c
+index 09e1dd9..00c2c3a 100644
+--- a/web/src/fftools/ffmpeg.c
++++ b/web/src/fftools/ffmpeg.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg.h b/web/src/fftools/ffmpeg.h
+index 46cc73f..e87f731 100644
+--- a/web/src/fftools/ffmpeg.h
++++ b/web/src/fftools/ffmpeg.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg_dec.c b/web/src/fftools/ffmpeg_dec.c
+index 68e91b7..d3eeb41 100644
+--- a/web/src/fftools/ffmpeg_dec.c
++++ b/web/src/fftools/ffmpeg_dec.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg_demux.c b/web/src/fftools/ffmpeg_demux.c
+index 76dd4f4..d66ad06 100644
+--- a/web/src/fftools/ffmpeg_demux.c
++++ b/web/src/fftools/ffmpeg_demux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -2116,6 +2120,11 @@ int ifile_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(d, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     if (o->format) {
+         if (!(file_iformat = av_find_input_format(o->format))) {
+             av_log(d, AV_LOG_FATAL, "Unknown input format: '%s'\n", o->format);
+diff --git a/web/src/fftools/ffmpeg_enc.c b/web/src/fftools/ffmpeg_enc.c
+index 6dc7550..d5aa664 100644
+--- a/web/src/fftools/ffmpeg_enc.c
++++ b/web/src/fftools/ffmpeg_enc.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg_filter.c b/web/src/fftools/ffmpeg_filter.c
+index 74d3699..f3464f5 100644
+--- a/web/src/fftools/ffmpeg_filter.c
++++ b/web/src/fftools/ffmpeg_filter.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg_hw.c b/web/src/fftools/ffmpeg_hw.c
+index 9ac99e2..ae9f1aa 100644
+--- a/web/src/fftools/ffmpeg_hw.c
++++ b/web/src/fftools/ffmpeg_hw.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg_mux.c b/web/src/fftools/ffmpeg_mux.c
+index 86c4d25..3611108 100644
+--- a/web/src/fftools/ffmpeg_mux.c
++++ b/web/src/fftools/ffmpeg_mux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg_mux.h b/web/src/fftools/ffmpeg_mux.h
+index 003149b..15820b0 100644
+--- a/web/src/fftools/ffmpeg_mux.h
++++ b/web/src/fftools/ffmpeg_mux.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg_mux_init.c b/web/src/fftools/ffmpeg_mux_init.c
+index 79d2cac..481939e 100644
+--- a/web/src/fftools/ffmpeg_mux_init.c
++++ b/web/src/fftools/ffmpeg_mux_init.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -1195,7 +1199,7 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     int threads_manual = 0;
+     AVRational enc_tb = { 0, 0 };
+     enum VideoSyncMethod vsync_method = VSYNC_AUTO;
+-    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL;
++    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL, *manual_disp = NULL;
+     char  *next;
+     double qscale = -1;
+ 
+@@ -1252,6 +1256,20 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     ms->par_in->codec_type   = type;
+     st->codecpar->codec_type = type;
+ 
++    if (ost->type == AVMEDIA_TYPE_VIDEO) {
++        if (ost->ist)
++            ost->st->disposition = ost->ist->st->disposition;
++
++        opt_match_per_stream_str(ost, &o->disposition, oc, st, &manual_disp);
++        if (manual_disp) {
++            ret = av_opt_set(ost->st, "disposition", manual_disp, 0);
++            if (ret < 0)
++                return ret;
++        }
++
++        ost->st->disposition &= AV_DISPOSITION_ATTACHED_PIC;
++    }
++
+     ret = choose_encoder(o, oc, ms, &enc);
+     if (ret < 0) {
+         av_log(ost, AV_LOG_FATAL, "Error selecting an encoder\n");
+@@ -3100,6 +3118,11 @@ static int set_dispositions(Muxer *mux, const OptionsContext *o)
+     if (!dispositions)
+         return AVERROR(ENOMEM);
+ 
++    // reset any apic flag set for option stream-spec matching in ost_add
++    for (int i = 0; i < ctx->nb_streams; i++) {
++        of->streams[i]->st->disposition = 0;
++    }
++
+     // first, copy the input dispositions
+     for (int i = 0; i < ctx->nb_streams; i++) {
+         OutputStream *ost = of->streams[i];
+@@ -3348,6 +3371,11 @@ int of_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(mux, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     of->recording_time = recording_time;
+     of->start_time     = o->start_time;
+ 
+diff --git a/web/src/fftools/ffmpeg_opt.c b/web/src/fftools/ffmpeg_opt.c
+index 30d1831..e57c8d3 100644
+--- a/web/src/fftools/ffmpeg_opt.c
++++ b/web/src/fftools/ffmpeg_opt.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg_sched.c b/web/src/fftools/ffmpeg_sched.c
+index a9dcf3a..5da8577 100644
+--- a/web/src/fftools/ffmpeg_sched.c
++++ b/web/src/fftools/ffmpeg_sched.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -69,7 +73,6 @@ void *loadFFmpegContext(FFmpegContext *context);
+ #include "libavcodec/packet.h"
+ 
+ #include "libavutil/avassert.h"
+-#include "libavutil/container_fifo.h"
+ #include "libavutil/error.h"
+ #include "libavutil/fifo.h"
+ #include "libavutil/frame.h"
+@@ -124,7 +127,6 @@ typedef struct SchDec {
+     unsigned         nb_outputs;
+ 
+     SchTask             task;
+-    SchWaiter           waiter;
+     // Queue for receiving input packets, one stream.
+     ThreadQueue        *queue;
+ 
+@@ -134,9 +136,6 @@ typedef struct SchDec {
+ 
+     // temporary storage used by sch_dec_send()
+     AVFrame            *send_frame;
+-
+-    // internal queue of undecoded packets used by sch_dec_receive()
+-    AVContainerFifo    *overflow;
+ } SchDec;
+ 
+ typedef struct SchSyncQueue {
+@@ -596,7 +595,6 @@ void sch_free(Scheduler **psch)
+         tq_free(&dec->queue);
+ 
+         av_thread_message_queue_free(&dec->queue_end_ts);
+-        av_container_fifo_free(&dec->overflow);
+ 
+         for (unsigned j = 0; j < dec->nb_outputs; j++) {
+             SchDecOutput *o = &dec->outputs[j];
+@@ -608,8 +606,6 @@ void sch_free(Scheduler **psch)
+         av_freep(&dec->outputs);
+ 
+         av_frame_free(&dec->send_frame);
+-
+-        waiter_uninit(&dec->waiter);
+     }
+     av_freep(&sch->dec);
+ 
+@@ -860,14 +856,6 @@ int sch_add_dec(Scheduler *sch, SchThreadFunc func, void *ctx, int send_end_ts)
+             return ret;
+     }
+ 
+-    dec->overflow = av_container_fifo_alloc_avpacket(0);
+-    if (!dec->overflow)
+-        return AVERROR(ENOMEM);
+-
+-    ret = waiter_init(&dec->waiter);
+-    if (ret < 0)
+-        return ret;
+-
+     return idx;
+ }
+ 
+@@ -1364,9 +1352,8 @@ int sch_mux_sub_heartbeat_add(Scheduler *sch, unsigned mux_idx, unsigned stream_
+ enum {
+     UNCHOKE_DEMUX  = (1 << 0),
+     UNCHOKE_FILTER = (1 << 1),
+-    UNCHOKE_DECODE = (1 << 2),
+ 
+-    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER | UNCHOKE_DECODE,
++    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER,
+ };
+ 
+ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags);
+@@ -1381,10 +1368,8 @@ static void unchoke_downstream(Scheduler *sch, SchedulerNode *dst)
+     switch (dst->type) {
+     case SCH_NODE_TYPE_DEC:
+         dec = &sch->dec[dst->idx];
+-        if (!dec->waiter.choked_next) {
+-            for (int i = 0; i < dec->nb_outputs; i++)
+-                unchoke_downstream(sch, dec->outputs[i].dst);
+-        }
++        for (int i = 0; i < dec->nb_outputs; i++)
++            unchoke_downstream(sch, dec->outputs[i].dst);
+         break;
+     case SCH_NODE_TYPE_ENC:
+         enc = &sch->enc[dst->idx];
+@@ -1415,7 +1400,6 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+     while (1) {
+         SchFilterGraph *fg;
+         SchDemux *demux;
+-        SchDec *dec;
+         switch (src.type) {
+         case SCH_NODE_TYPE_DEMUX:
+             // fed directly by a demuxer (i.e. not through a filtergraph)
+@@ -1429,11 +1413,7 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+             }
+             return;
+         case SCH_NODE_TYPE_DEC:
+-            dec = &sch->dec[src.idx];
+-            if (!(flags & UNCHOKE_DECODE))
+-                return;
+-            dec->waiter.choked_next = 0;
+-            src = dec->src;
++            src = sch->dec[src.idx].src;
+             continue;
+         case SCH_NODE_TYPE_ENC:
+             src = sch->enc[src.idx].src;
+@@ -1512,7 +1492,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     RESET_WAITER(demux);
+     RESET_WAITER(filters);
+-    RESET_WAITER(dec);
+ 
+     // figure out the sources that are allowed to proceed
+     for (unsigned i = 0; i < sch->nb_mux; i++) {
+@@ -1523,11 +1502,8 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+             // unblock sources for output streams that are not finished
+             // and not too far ahead of the trailing stream
+-            if (ms->source_finished) {
+-                // still allow decoders to drain
+-                unchoke_for_stream(sch, ms->src, UNCHOKE_DECODE);
++            if (ms->source_finished)
+                 continue;
+-            }
+             if (dts == AV_NOPTS_VALUE && ms->last_dts != AV_NOPTS_VALUE)
+                 continue;
+             if (dts != AV_NOPTS_VALUE && ms->last_dts - dts >= SCHEDULE_TOLERANCE)
+@@ -1581,7 +1557,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     UPDATE_WAITER(demux);
+     UPDATE_WAITER(filters);
+-    UPDATE_WAITER(dec);
+ }
+ 
+ enum {
+@@ -2384,12 +2359,6 @@ int sch_dec_receive(Scheduler *sch, unsigned dec_idx, AVPacket *pkt)
+     av_assert0(dec_idx < sch->nb_dec);
+     dec = &sch->dec[dec_idx];
+ 
+-retry:
+-    // Pull a packet from the overflow FIFO while unchoked or expecting EOF ts
+-    if (av_container_fifo_can_read(dec->overflow) &&
+-        (!atomic_load(&dec->waiter.choked) || dec->expect_end_ts))
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-
+     // the decoder should have given us post-flush end timestamp in pkt
+     if (dec->expect_end_ts) {
+         Timestamp ts = (Timestamp){ .ts = pkt->pts, .tb = pkt->time_base };
+@@ -2403,29 +2372,11 @@ retry:
+     ret = tq_receive(dec->queue, &dummy, pkt, 0);
+     av_assert0(dummy <= 0);
+ 
+-    // drain packets from overflow queue before returning EOF
+-    if (ret == AVERROR_EOF && av_container_fifo_can_read(dec->overflow)) {
+-        int terminate = waiter_wait(sch, &dec->waiter);
+-        if (terminate)
+-            return ret;
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-    } else if (ret < 0)
+-        return ret;
+-
+     // got a flush packet, on the next call to this function the decoder
+-    // should give us post-flush end timestamp (after draining overflow fifo)
+-    if (!pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
++    // will give us post-flush end timestamp
++    if (ret >= 0 && !pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
+         dec->expect_end_ts = 1;
+ 
+-    // we got a packet, but we're currently choked or have existing overflow
+-    // packets; so push it to the FIFO first
+-    if (atomic_load(&dec->waiter.choked) || av_container_fifo_can_read(dec->overflow)) {
+-        ret = av_container_fifo_write(dec->overflow, pkt, 0);
+-        if (ret < 0)
+-            return ret;
+-        goto retry;
+-    }
+-
+     return ret;
+ }
+ 
+@@ -2886,9 +2837,6 @@ int sch_stop(Scheduler *sch, int64_t *finish_ts)
+                 choke_demux(sch, i, 0); // unfreeze to allow draining
+         }
+ 
+-    for (unsigned i = 0; i < sch->nb_dec; i++)
+-        waiter_set(&sch->dec[i].waiter, 0); // unfreeze to allow draining
+-
+     pthread_mutex_unlock(&sch->schedule_lock);
+ 
+     for (unsigned i = 0; i < sch->nb_demux; i++) {
+diff --git a/web/src/fftools/ffmpeg_sched.h b/web/src/fftools/ffmpeg_sched.h
+index e139c16..161d765 100644
+--- a/web/src/fftools/ffmpeg_sched.h
++++ b/web/src/fftools/ffmpeg_sched.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffmpeg_utils.h b/web/src/fftools/ffmpeg_utils.h
+index fab1997..0b058e3 100644
+--- a/web/src/fftools/ffmpeg_utils.h
++++ b/web/src/fftools/ffmpeg_utils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/ffprobe.c b/web/src/fftools/ffprobe.c
+index 1e3a071..fcd92f5 100644
+--- a/web/src/fftools/ffprobe.c
++++ b/web/src/fftools/ffprobe.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/fopen_utf8.h b/web/src/fftools/fopen_utf8.h
+index 0fdb43f..b247069 100644
+--- a/web/src/fftools/fopen_utf8.h
++++ b/web/src/fftools/fopen_utf8.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/graph/graphprint.c b/web/src/fftools/graph/graphprint.c
+index 0046ac7..a2c8b39 100644
+--- a/web/src/fftools/graph/graphprint.c
++++ b/web/src/fftools/graph/graphprint.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/opt_common.c b/web/src/fftools/opt_common.c
+index 22be267..6df3559 100644
+--- a/web/src/fftools/opt_common.c
++++ b/web/src/fftools/opt_common.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/opt_common.h b/web/src/fftools/opt_common.h
+index 157f9e8..44f3263 100644
+--- a/web/src/fftools/opt_common.h
++++ b/web/src/fftools/opt_common.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2022, 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/resources/graph_resources.c b/web/src/fftools/resources/graph_resources.c
+index c8c79cf..66d2b0d 100644
+--- a/web/src/fftools/resources/graph_resources.c
++++ b/web/src/fftools/resources/graph_resources.c
+@@ -7,7 +7,7 @@
+  *
+  * This generated file is part of FFmpegKitNext.
+  * It is generated from FFmpeg's fftools/resources/graph.css and
+- * fftools/resources/graph.html at tag n9.0.1.
++ * fftools/resources/graph.html at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/resources/resman.c b/web/src/fftools/resources/resman.c
+index 9fc4e3f..c6bceed 100644
+--- a/web/src/fftools/resources/resman.c
++++ b/web/src/fftools/resources/resman.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/resources/resman.h b/web/src/fftools/resources/resman.h
+index 2be2308..3dbf441 100644
+--- a/web/src/fftools/resources/resman.h
++++ b/web/src/fftools/resources/resman.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/sync_queue.c b/web/src/fftools/sync_queue.c
+index 856d76f..97b5f8d 100644
+--- a/web/src/fftools/sync_queue.c
++++ b/web/src/fftools/sync_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/sync_queue.h b/web/src/fftools/sync_queue.h
+index f1cab7b..394cfaf 100644
+--- a/web/src/fftools/sync_queue.h
++++ b/web/src/fftools/sync_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/textformat/tw_stdout.c b/web/src/fftools/textformat/tw_stdout.c
+index 94bc8a9..fbe5c12 100644
+--- a/web/src/fftools/textformat/tw_stdout.c
++++ b/web/src/fftools/textformat/tw_stdout.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/thread_queue.c b/web/src/fftools/thread_queue.c
+index 94e3d42..837508e 100644
+--- a/web/src/fftools/thread_queue.c
++++ b/web/src/fftools/thread_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/web/src/fftools/thread_queue.h b/web/src/fftools/thread_queue.h
+index ac2bc48..5737d69 100644
+--- a/web/src/fftools/thread_queue.h
++++ b/web/src/fftools/thread_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/cmdutils.c b/windows/src/fftools/cmdutils.c
+index 5cbdbcd..9a8922e 100644
+--- a/windows/src/fftools/cmdutils.c
++++ b/windows/src/fftools/cmdutils.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/cmdutils.h b/windows/src/fftools/cmdutils.h
+index c69de57..aa86c2e 100644
+--- a/windows/src/fftools/cmdutils.h
++++ b/windows/src/fftools/cmdutils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/cmdutils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg.c b/windows/src/fftools/ffmpeg.c
+index 09e1dd9..00c2c3a 100644
+--- a/windows/src/fftools/ffmpeg.c
++++ b/windows/src/fftools/ffmpeg.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg.h b/windows/src/fftools/ffmpeg.h
+index 46cc73f..e87f731 100644
+--- a/windows/src/fftools/ffmpeg.h
++++ b/windows/src/fftools/ffmpeg.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg_dec.c b/windows/src/fftools/ffmpeg_dec.c
+index 68e91b7..d3eeb41 100644
+--- a/windows/src/fftools/ffmpeg_dec.c
++++ b/windows/src/fftools/ffmpeg_dec.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_dec.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg_demux.c b/windows/src/fftools/ffmpeg_demux.c
+index 76dd4f4..d66ad06 100644
+--- a/windows/src/fftools/ffmpeg_demux.c
++++ b/windows/src/fftools/ffmpeg_demux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_demux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -2116,6 +2120,11 @@ int ifile_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(d, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     if (o->format) {
+         if (!(file_iformat = av_find_input_format(o->format))) {
+             av_log(d, AV_LOG_FATAL, "Unknown input format: '%s'\n", o->format);
+diff --git a/windows/src/fftools/ffmpeg_enc.c b/windows/src/fftools/ffmpeg_enc.c
+index 6dc7550..d5aa664 100644
+--- a/windows/src/fftools/ffmpeg_enc.c
++++ b/windows/src/fftools/ffmpeg_enc.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_enc.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg_filter.c b/windows/src/fftools/ffmpeg_filter.c
+index 74d3699..f3464f5 100644
+--- a/windows/src/fftools/ffmpeg_filter.c
++++ b/windows/src/fftools/ffmpeg_filter.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_filter.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg_hw.c b/windows/src/fftools/ffmpeg_hw.c
+index 9ac99e2..ae9f1aa 100644
+--- a/windows/src/fftools/ffmpeg_hw.c
++++ b/windows/src/fftools/ffmpeg_hw.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_hw.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg_mux.c b/windows/src/fftools/ffmpeg_mux.c
+index 86c4d25..3611108 100644
+--- a/windows/src/fftools/ffmpeg_mux.c
++++ b/windows/src/fftools/ffmpeg_mux.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg_mux.h b/windows/src/fftools/ffmpeg_mux.h
+index 003149b..15820b0 100644
+--- a/windows/src/fftools/ffmpeg_mux.h
++++ b/windows/src/fftools/ffmpeg_mux.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg_mux_init.c b/windows/src/fftools/ffmpeg_mux_init.c
+index 79d2cac..481939e 100644
+--- a/windows/src/fftools/ffmpeg_mux_init.c
++++ b/windows/src/fftools/ffmpeg_mux_init.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_mux_init.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -1195,7 +1199,7 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     int threads_manual = 0;
+     AVRational enc_tb = { 0, 0 };
+     enum VideoSyncMethod vsync_method = VSYNC_AUTO;
+-    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL;
++    const char *bsfs = NULL, *time_base = NULL, *codec_tag = NULL, *manual_disp = NULL;
+     char  *next;
+     double qscale = -1;
+ 
+@@ -1252,6 +1256,20 @@ static int ost_add(Muxer *mux, const OptionsContext *o, enum AVMediaType type,
+     ms->par_in->codec_type   = type;
+     st->codecpar->codec_type = type;
+ 
++    if (ost->type == AVMEDIA_TYPE_VIDEO) {
++        if (ost->ist)
++            ost->st->disposition = ost->ist->st->disposition;
++
++        opt_match_per_stream_str(ost, &o->disposition, oc, st, &manual_disp);
++        if (manual_disp) {
++            ret = av_opt_set(ost->st, "disposition", manual_disp, 0);
++            if (ret < 0)
++                return ret;
++        }
++
++        ost->st->disposition &= AV_DISPOSITION_ATTACHED_PIC;
++    }
++
+     ret = choose_encoder(o, oc, ms, &enc);
+     if (ret < 0) {
+         av_log(ost, AV_LOG_FATAL, "Error selecting an encoder\n");
+@@ -3100,6 +3118,11 @@ static int set_dispositions(Muxer *mux, const OptionsContext *o)
+     if (!dispositions)
+         return AVERROR(ENOMEM);
+ 
++    // reset any apic flag set for option stream-spec matching in ost_add
++    for (int i = 0; i < ctx->nb_streams; i++) {
++        of->streams[i]->st->disposition = 0;
++    }
++
+     // first, copy the input dispositions
+     for (int i = 0; i < ctx->nb_streams; i++) {
+         OutputStream *ost = of->streams[i];
+@@ -3348,6 +3371,11 @@ int of_open(const OptionsContext *o, const char *filename, Scheduler *sch)
+         }
+     }
+ 
++    if (recording_time != INT64_MAX && recording_time < 0) {
++        av_log(mux, AV_LOG_ERROR, "-t value must be non-negative; aborting.\n");
++        return AVERROR(EINVAL);
++    }
++
+     of->recording_time = recording_time;
+     of->start_time     = o->start_time;
+ 
+diff --git a/windows/src/fftools/ffmpeg_opt.c b/windows/src/fftools/ffmpeg_opt.c
+index 30d1831..e57c8d3 100644
+--- a/windows/src/fftools/ffmpeg_opt.c
++++ b/windows/src/fftools/ffmpeg_opt.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg_sched.c b/windows/src/fftools/ffmpeg_sched.c
+index a9dcf3a..5da8577 100644
+--- a/windows/src/fftools/ffmpeg_sched.c
++++ b/windows/src/fftools/ffmpeg_sched.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+@@ -69,7 +73,6 @@ void *loadFFmpegContext(FFmpegContext *context);
+ #include "libavcodec/packet.h"
+ 
+ #include "libavutil/avassert.h"
+-#include "libavutil/container_fifo.h"
+ #include "libavutil/error.h"
+ #include "libavutil/fifo.h"
+ #include "libavutil/frame.h"
+@@ -124,7 +127,6 @@ typedef struct SchDec {
+     unsigned         nb_outputs;
+ 
+     SchTask             task;
+-    SchWaiter           waiter;
+     // Queue for receiving input packets, one stream.
+     ThreadQueue        *queue;
+ 
+@@ -134,9 +136,6 @@ typedef struct SchDec {
+ 
+     // temporary storage used by sch_dec_send()
+     AVFrame            *send_frame;
+-
+-    // internal queue of undecoded packets used by sch_dec_receive()
+-    AVContainerFifo    *overflow;
+ } SchDec;
+ 
+ typedef struct SchSyncQueue {
+@@ -596,7 +595,6 @@ void sch_free(Scheduler **psch)
+         tq_free(&dec->queue);
+ 
+         av_thread_message_queue_free(&dec->queue_end_ts);
+-        av_container_fifo_free(&dec->overflow);
+ 
+         for (unsigned j = 0; j < dec->nb_outputs; j++) {
+             SchDecOutput *o = &dec->outputs[j];
+@@ -608,8 +606,6 @@ void sch_free(Scheduler **psch)
+         av_freep(&dec->outputs);
+ 
+         av_frame_free(&dec->send_frame);
+-
+-        waiter_uninit(&dec->waiter);
+     }
+     av_freep(&sch->dec);
+ 
+@@ -860,14 +856,6 @@ int sch_add_dec(Scheduler *sch, SchThreadFunc func, void *ctx, int send_end_ts)
+             return ret;
+     }
+ 
+-    dec->overflow = av_container_fifo_alloc_avpacket(0);
+-    if (!dec->overflow)
+-        return AVERROR(ENOMEM);
+-
+-    ret = waiter_init(&dec->waiter);
+-    if (ret < 0)
+-        return ret;
+-
+     return idx;
+ }
+ 
+@@ -1364,9 +1352,8 @@ int sch_mux_sub_heartbeat_add(Scheduler *sch, unsigned mux_idx, unsigned stream_
+ enum {
+     UNCHOKE_DEMUX  = (1 << 0),
+     UNCHOKE_FILTER = (1 << 1),
+-    UNCHOKE_DECODE = (1 << 2),
+ 
+-    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER | UNCHOKE_DECODE,
++    UNCHOKE_ALL = UNCHOKE_DEMUX | UNCHOKE_FILTER,
+ };
+ 
+ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags);
+@@ -1381,10 +1368,8 @@ static void unchoke_downstream(Scheduler *sch, SchedulerNode *dst)
+     switch (dst->type) {
+     case SCH_NODE_TYPE_DEC:
+         dec = &sch->dec[dst->idx];
+-        if (!dec->waiter.choked_next) {
+-            for (int i = 0; i < dec->nb_outputs; i++)
+-                unchoke_downstream(sch, dec->outputs[i].dst);
+-        }
++        for (int i = 0; i < dec->nb_outputs; i++)
++            unchoke_downstream(sch, dec->outputs[i].dst);
+         break;
+     case SCH_NODE_TYPE_ENC:
+         enc = &sch->enc[dst->idx];
+@@ -1415,7 +1400,6 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+     while (1) {
+         SchFilterGraph *fg;
+         SchDemux *demux;
+-        SchDec *dec;
+         switch (src.type) {
+         case SCH_NODE_TYPE_DEMUX:
+             // fed directly by a demuxer (i.e. not through a filtergraph)
+@@ -1429,11 +1413,7 @@ static void unchoke_for_stream(Scheduler *sch, SchedulerNode src, int flags)
+             }
+             return;
+         case SCH_NODE_TYPE_DEC:
+-            dec = &sch->dec[src.idx];
+-            if (!(flags & UNCHOKE_DECODE))
+-                return;
+-            dec->waiter.choked_next = 0;
+-            src = dec->src;
++            src = sch->dec[src.idx].src;
+             continue;
+         case SCH_NODE_TYPE_ENC:
+             src = sch->enc[src.idx].src;
+@@ -1512,7 +1492,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     RESET_WAITER(demux);
+     RESET_WAITER(filters);
+-    RESET_WAITER(dec);
+ 
+     // figure out the sources that are allowed to proceed
+     for (unsigned i = 0; i < sch->nb_mux; i++) {
+@@ -1523,11 +1502,8 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+             // unblock sources for output streams that are not finished
+             // and not too far ahead of the trailing stream
+-            if (ms->source_finished) {
+-                // still allow decoders to drain
+-                unchoke_for_stream(sch, ms->src, UNCHOKE_DECODE);
++            if (ms->source_finished)
+                 continue;
+-            }
+             if (dts == AV_NOPTS_VALUE && ms->last_dts != AV_NOPTS_VALUE)
+                 continue;
+             if (dts != AV_NOPTS_VALUE && ms->last_dts - dts >= SCHEDULE_TOLERANCE)
+@@ -1581,7 +1557,6 @@ static void schedule_update_locked(Scheduler *sch)
+ 
+     UPDATE_WAITER(demux);
+     UPDATE_WAITER(filters);
+-    UPDATE_WAITER(dec);
+ }
+ 
+ enum {
+@@ -2384,12 +2359,6 @@ int sch_dec_receive(Scheduler *sch, unsigned dec_idx, AVPacket *pkt)
+     av_assert0(dec_idx < sch->nb_dec);
+     dec = &sch->dec[dec_idx];
+ 
+-retry:
+-    // Pull a packet from the overflow FIFO while unchoked or expecting EOF ts
+-    if (av_container_fifo_can_read(dec->overflow) &&
+-        (!atomic_load(&dec->waiter.choked) || dec->expect_end_ts))
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-
+     // the decoder should have given us post-flush end timestamp in pkt
+     if (dec->expect_end_ts) {
+         Timestamp ts = (Timestamp){ .ts = pkt->pts, .tb = pkt->time_base };
+@@ -2403,29 +2372,11 @@ retry:
+     ret = tq_receive(dec->queue, &dummy, pkt, 0);
+     av_assert0(dummy <= 0);
+ 
+-    // drain packets from overflow queue before returning EOF
+-    if (ret == AVERROR_EOF && av_container_fifo_can_read(dec->overflow)) {
+-        int terminate = waiter_wait(sch, &dec->waiter);
+-        if (terminate)
+-            return ret;
+-        return av_container_fifo_read(dec->overflow, pkt, 0);
+-    } else if (ret < 0)
+-        return ret;
+-
+     // got a flush packet, on the next call to this function the decoder
+-    // should give us post-flush end timestamp (after draining overflow fifo)
+-    if (!pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
++    // will give us post-flush end timestamp
++    if (ret >= 0 && !pkt->data && !pkt->side_data_elems && dec->queue_end_ts)
+         dec->expect_end_ts = 1;
+ 
+-    // we got a packet, but we're currently choked or have existing overflow
+-    // packets; so push it to the FIFO first
+-    if (atomic_load(&dec->waiter.choked) || av_container_fifo_can_read(dec->overflow)) {
+-        ret = av_container_fifo_write(dec->overflow, pkt, 0);
+-        if (ret < 0)
+-            return ret;
+-        goto retry;
+-    }
+-
+     return ret;
+ }
+ 
+@@ -2886,9 +2837,6 @@ int sch_stop(Scheduler *sch, int64_t *finish_ts)
+                 choke_demux(sch, i, 0); // unfreeze to allow draining
+         }
+ 
+-    for (unsigned i = 0; i < sch->nb_dec; i++)
+-        waiter_set(&sch->dec[i].waiter, 0); // unfreeze to allow draining
+-
+     pthread_mutex_unlock(&sch->schedule_lock);
+ 
+     for (unsigned i = 0; i < sch->nb_demux; i++) {
+diff --git a/windows/src/fftools/ffmpeg_sched.h b/windows/src/fftools/ffmpeg_sched.h
+index e139c16..161d765 100644
+--- a/windows/src/fftools/ffmpeg_sched.h
++++ b/windows/src/fftools/ffmpeg_sched.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_sched.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffmpeg_utils.h b/windows/src/fftools/ffmpeg_utils.h
+index fab1997..0b058e3 100644
+--- a/windows/src/fftools/ffmpeg_utils.h
++++ b/windows/src/fftools/ffmpeg_utils.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffmpeg_utils.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/ffprobe.c b/windows/src/fftools/ffprobe.c
+index 1e3a071..fcd92f5 100644
+--- a/windows/src/fftools/ffprobe.c
++++ b/windows/src/fftools/ffprobe.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/ffprobe.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/fopen_utf8.h b/windows/src/fftools/fopen_utf8.h
+index 0fdb43f..b247069 100644
+--- a/windows/src/fftools/fopen_utf8.h
++++ b/windows/src/fftools/fopen_utf8.h
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/fopen_utf8.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/graph/graphprint.c b/windows/src/fftools/graph/graphprint.c
+index 0046ac7..a2c8b39 100644
+--- a/windows/src/fftools/graph/graphprint.c
++++ b/windows/src/fftools/graph/graphprint.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/graph/graphprint.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/opt_common.c b/windows/src/fftools/opt_common.c
+index 22be267..6df3559 100644
+--- a/windows/src/fftools/opt_common.c
++++ b/windows/src/fftools/opt_common.c
+@@ -7,7 +7,7 @@
+  * Copyright (c) 2023-2024 ARTHENICA LTD
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/opt_common.h b/windows/src/fftools/opt_common.h
+index 157f9e8..44f3263 100644
+--- a/windows/src/fftools/opt_common.h
++++ b/windows/src/fftools/opt_common.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2022, 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/opt_common.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/resources/graph_resources.c b/windows/src/fftools/resources/graph_resources.c
+index c8c79cf..66d2b0d 100644
+--- a/windows/src/fftools/resources/graph_resources.c
++++ b/windows/src/fftools/resources/graph_resources.c
+@@ -7,7 +7,7 @@
+  *
+  * This generated file is part of FFmpegKitNext.
+  * It is generated from FFmpeg's fftools/resources/graph.css and
+- * fftools/resources/graph.html at tag n9.0.1.
++ * fftools/resources/graph.html at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -33,6 +33,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/resources/resman.c b/windows/src/fftools/resources/resman.c
+index 9fc4e3f..c6bceed 100644
+--- a/windows/src/fftools/resources/resman.c
++++ b/windows/src/fftools/resources/resman.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/resources/resman.h b/windows/src/fftools/resources/resman.h
+index 2be2308..3dbf441 100644
+--- a/windows/src/fftools/resources/resman.h
++++ b/windows/src/fftools/resources/resman.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/resources/resman.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/sync_queue.c b/windows/src/fftools/sync_queue.c
+index 856d76f..97b5f8d 100644
+--- a/windows/src/fftools/sync_queue.c
++++ b/windows/src/fftools/sync_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/sync_queue.h b/windows/src/fftools/sync_queue.h
+index f1cab7b..394cfaf 100644
+--- a/windows/src/fftools/sync_queue.h
++++ b/windows/src/fftools/sync_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/sync_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/textformat/tw_stdout.c b/windows/src/fftools/textformat/tw_stdout.c
+index 94bc8a9..fbe5c12 100644
+--- a/windows/src/fftools/textformat/tw_stdout.c
++++ b/windows/src/fftools/textformat/tw_stdout.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/textformat/tw_stdout.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/thread_queue.c b/windows/src/fftools/thread_queue.c
+index 94e3d42..837508e 100644
+--- a/windows/src/fftools/thread_queue.c
++++ b/windows/src/fftools/thread_queue.c
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.c at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated
+diff --git a/windows/src/fftools/thread_queue.h b/windows/src/fftools/thread_queue.h
+index ac2bc48..5737d69 100644
+--- a/windows/src/fftools/thread_queue.h
++++ b/windows/src/fftools/thread_queue.h
+@@ -6,7 +6,7 @@
+  * Copyright (c) 2026 Taner Sener
+  *
+  * This modified file is part of FFmpegKitNext.
+- * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.1.
++ * It is derived from FFmpeg's fftools/thread_queue.h at tag n9.0.2.
+  *
+  * The original FFmpeg source is licensed under the GNU Lesser General
+  * Public License version 2.1 or later. FFmpegKitNext distributes this
+@@ -32,6 +32,10 @@
+  *
+  * ffmpeg-kit changes by Taner Sener
+  *
++ * 09.2026
++ * --------------------------------------------------------
++ * - FFmpeg 9.0.2 changes migrated
++ *
+  * 08.2026
+  * --------------------------------------------------------
+  * - FFmpeg 9.0.1 changes migrated

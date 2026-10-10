@@ -1,0 +1,110 @@
+{
+  "repository": "mahdiramezani-mr/ffmpeg-kit-next",
+  "base_commit": "a724ed99583dcfe2af497c794fdd6b24ddd54a4e",
+  "ffmpeg_source": "n9.0.2",
+  "ffmpeg_commit": "ce8f11b9fac4cd7ccfb41ca7c01bc17f5cda8cc3",
+  "wrapper_version": "9.0.0",
+  "tag": "v9.0.0-studio.1",
+  "common_args": [
+    "--speed",
+    "--enable-gpl",
+    "--lib-version-ffmpeg=n9.0.2",
+    "--enable-lib-x264",
+    "--enable-lib-x265",
+    "--enable-lib-zimg",
+    "--enable-lib-lame",
+    "--enable-lib-dav1d"
+  ],
+  "platforms": {
+    "windows": {
+      "script": "windows.sh",
+      "args": [
+        "--arch=x86-64",
+        "--enable-lib-zlib"
+      ],
+      "binary_path": "flutter/flutter/windows/Frameworks/ffmpeg-kit-next"
+    },
+    "android": {
+      "script": "nix-android.sh",
+      "args": [
+        "-p",
+        "android-r27d",
+        "--api-level=24",
+        "--arch=arm-v7a-neon,arm64-v8a,x86-64",
+        "--enable-lib-android-zlib",
+        "--enable-lib-android-media-codec"
+      ],
+      "binary_path": "flutter/flutter/android/libs-maven"
+    },
+    "ios": {
+      "script": "nix-ios.sh",
+      "args": [
+        "-p",
+        "xcode26",
+        "-x",
+        "--target=15.0",
+        "--arch=arm64,arm64-simulator,x86-64",
+        "--enable-lib-ios-zlib",
+        "--enable-lib-ios-bzip2",
+        "--enable-lib-ios-libiconv",
+        "--enable-lib-ios-videotoolbox"
+      ],
+      "binary_path": "flutter/flutter/ios/ffmpeg_kit_next_flutter/Frameworks"
+    },
+    "macos": {
+      "script": "nix-macos.sh",
+      "args": [
+        "-p",
+        "xcode26",
+        "-x",
+        "--target=10.15",
+        "--arch=arm64,x86-64",
+        "--enable-lib-macos-zlib",
+        "--enable-lib-macos-bzip2",
+        "--enable-lib-macos-libiconv",
+        "--enable-lib-macos-videotoolbox"
+      ],
+      "binary_path": "flutter/flutter/macos/ffmpeg_kit_next_flutter/Frameworks"
+    }
+  },
+  "base_tag": "v9.0.0",
+  "source_branch": "profiles",
+  "patches": [
+    {
+      "file": "patches/studio/01-clang64.patch",
+      "from": "1129b269be3c629d8cdc49e706514036f4c52bf1",
+      "reason": "01-clang64.patch"
+    },
+    {
+      "file": "patches/studio/02-android-host-clang.patch",
+      "from": "0ec7d7cb448082cf615c247ae8179df2604cc985",
+      "reason": "02-android-host-clang.patch"
+    },
+    {
+      "file": "patches/studio/03-ffmpeg-9.0.2.patch",
+      "from": "598cc6a5c14d1f6bea99b1c41254077069a7d0a9",
+      "reason": "03-ffmpeg-9.0.2.patch"
+    },
+    {
+      "file": "patches/studio/04-host-cc.patch",
+      "from": "c003f4323861c25a9214b99ed970318f70256013",
+      "reason": "04-host-cc.patch"
+    },
+    {
+      "file": "patches/studio/05-pr73-windows.patch",
+      "from": "b4ae43f00e51ff39fff7c9c4d1cd2ae22c3adddd",
+      "reason": "05-pr73-windows.patch"
+    },
+    {
+      "file": "patches/studio/06-clang22-colorspace.patch",
+      "from": "local",
+      "reason": "Measured Clang 22 colorspacedsp.c optimizer crash"
+    },
+    {
+      "file": "patches/studio/07-clang22-blur.patch",
+      "from": "local",
+      "reason": "Windows x64 Clang 22 misaligned vector conversions in gblur, dblur and bilateral integer output loops"
+    }
+  ],
+  "patched_tree": "11561c9e32eec63e82df5519a2e9acf27a41c7eb"
+}

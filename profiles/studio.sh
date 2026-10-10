@@ -1,0 +1,71 @@
+platforms=(android ios macos windows)
+
+android_args=(
+  --speed
+  --enable-gpl
+  --lib-version-ffmpeg=n9.0.2
+  --enable-lib-x264
+  --enable-lib-x265
+  --enable-lib-zimg
+  --enable-lib-lame
+  --enable-lib-dav1d
+  -p
+  android-r27d
+  --api-level=24
+  --arch=arm-v7a-neon,arm64-v8a,x86-64
+  --enable-lib-android-zlib
+  --enable-lib-android-media-codec
+)
+
+ios_args=(
+  --speed
+  --enable-gpl
+  --lib-version-ffmpeg=n9.0.2
+  --enable-lib-x264
+  --enable-lib-x265
+  --enable-lib-zimg
+  --enable-lib-lame
+  --enable-lib-dav1d
+  -p
+  xcode26
+  -x
+  --target=15.0
+  --arch=arm64,arm64-simulator,x86-64
+  --enable-lib-ios-zlib
+  --enable-lib-ios-bzip2
+  --enable-lib-ios-libiconv
+  --enable-lib-ios-videotoolbox
+)
+
+macos_args=(
+  --speed
+  --enable-gpl
+  --lib-version-ffmpeg=n9.0.2
+  --enable-lib-x264
+  --enable-lib-x265
+  --enable-lib-zimg
+  --enable-lib-lame
+  --enable-lib-dav1d
+  -p
+  xcode26
+  -x
+  --target=10.15
+  --arch=arm64,x86-64
+  --enable-lib-macos-zlib
+  --enable-lib-macos-bzip2
+  --enable-lib-macos-libiconv
+  --enable-lib-macos-videotoolbox
+)
+
+windows_args=(
+  --speed
+  --enable-gpl
+  --lib-version-ffmpeg=n9.0.2
+  --enable-lib-x264
+  --enable-lib-x265
+  --enable-lib-zimg
+  --enable-lib-lame
+  --enable-lib-dav1d
+  --arch=x86-64
+  --enable-lib-zlib
+)

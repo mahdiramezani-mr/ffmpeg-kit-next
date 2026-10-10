@@ -12,3 +12,6 @@
 /.codex
 /.ai
 /src
+
+/.toolchain/
+**/__pycache__/

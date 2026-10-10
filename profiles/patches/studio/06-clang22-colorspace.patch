@@ -1,0 +1,18 @@
+--- a/scripts/windows/ffmpeg.sh
++++ b/scripts/windows/ffmpeg.sh
+@@ -556,6 +556,15 @@
+   exit 1
+ fi
+ 
++# Studio: Clang 22 crashes in Register Coalescer on colorspacedsp.c at -O3.
++# Limit the workaround to this C translation unit; keep the other files at -O3.
++case "$("${CC}" --version)" in
++  *"clang version 22."*)
++    printf '\nlibavfilter/colorspacedsp.o: CFLAGS += -O2 -fno-vectorize -fno-slp-vectorize\n' \
++      >> "${BASEDIR}/src/ffmpeg/ffbuild/config.mak" || return 1
++    ;;
++esac
++
+ # MinGW may link fcntl(), but does not provide F_SETFD or FD_CLOEXEC.
+ ${SED_INLINE} 's/^#define HAVE_FCNTL 1$/#define HAVE_FCNTL 0/' \
+   "${BASEDIR}/src/ffmpeg/config.h" \
