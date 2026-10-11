@@ -1,0 +1,14 @@
+prefix=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next
+exec_prefix=${prefix}
+libdir=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next/lib
+includedir=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next/include
+
+Name: libavfilter
+Description: FFmpeg audio/video filtering library
+Version: 12.1.102
+Requires: 
+Requires.private: libswscale >= 10.1.102, libavformat >= 63.1.102, libavcodec >= 63.1.102, libswresample >= 7.1.102, libavutil >= 61.1.102
+Conflicts:
+Libs: -L${libdir}  -lavfilter 
+Libs.private: -lm -LP:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/windows-x86_64/zlib/lib -lz -LP:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/windows-x86_64/zimg/lib -lzimg -lstdc++
+Cflags: -I${includedir}

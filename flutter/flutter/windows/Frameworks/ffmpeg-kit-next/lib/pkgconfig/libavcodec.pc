@@ -1,0 +1,14 @@
+prefix=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next
+exec_prefix=${prefix}
+libdir=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next/lib
+includedir=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 63.1.102
+Requires: 
+Requires.private: libswresample >= 7.1.102, libavutil >= 61.1.102
+Conflicts:
+Libs: -L${libdir}  -lavcodec 
+Libs.private: -lm -LP:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/windows-x86_64/dav1d/lib -ldav1d -lmp3lame -lm -LP:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/windows-x86_64/x264/lib -lx264 -LP:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/windows-x86_64/x265/lib -lx265 -lm -lstdc++ -lole32 -luser32 -LP:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/windows-x86_64/zlib/lib -lz
+Cflags: -I${includedir}

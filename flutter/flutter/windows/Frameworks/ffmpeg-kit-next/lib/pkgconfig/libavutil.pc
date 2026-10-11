@@ -1,0 +1,14 @@
+prefix=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next
+exec_prefix=${prefix}
+libdir=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next/lib
+includedir=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 61.1.102
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil 
+Libs.private: -lm -LP:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/windows-x86_64/zlib/lib -lz -luser32 -lbcrypt
+Cflags: -I${includedir}

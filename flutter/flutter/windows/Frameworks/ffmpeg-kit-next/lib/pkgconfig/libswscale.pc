@@ -1,0 +1,14 @@
+prefix=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next
+exec_prefix=${prefix}
+libdir=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next/lib
+includedir=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next/include
+
+Name: libswscale
+Description: FFmpeg image rescaling library
+Version: 10.1.102
+Requires: 
+Requires.private: libavutil >= 61.1.102
+Conflicts:
+Libs: -L${libdir}  -lswscale 
+Libs.private: -lm
+Cflags: -I${includedir}

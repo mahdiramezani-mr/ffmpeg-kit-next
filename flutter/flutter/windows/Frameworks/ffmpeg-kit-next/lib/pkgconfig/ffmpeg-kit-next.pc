@@ -1,0 +1,14 @@
+prefix=P:/ffmpeg-studio9/v9.0.0-studio.1-windows-handoff/ffmpeg-kit-next/prebuilt/bundle-windows/ffmpeg-kit-next
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+bindir=${exec_prefix}/bin
+runtime_dlls=
+
+Name: ffmpeg-kit-next
+Description: FFmpeg for applications
+Version: 9.0.0
+
+Libs: -L${libdir} -lffmpegkit -lavutil
+Requires: libavfilter, libswscale, libavformat, libavcodec, libswresample, libavutil
+Cflags: -I${includedir}
