@@ -1,0 +1,14 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+bindir=${exec_prefix}/bin
+runtime_dlls=
+
+Name: ffmpeg-kit-next
+Description: FFmpeg for applications
+Version: 9.0.2
+
+Libs: -L${libdir} -lffmpegkit -lavutil
+Requires: libavdevice, libavfilter, libswscale, libavformat, libavcodec, libswresample, libavutil
+Cflags: -I${includedir}

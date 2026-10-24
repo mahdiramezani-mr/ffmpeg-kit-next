@@ -479,6 +479,13 @@ ulimit -n 2048 1>>"${BASEDIR}"/build.log 2>&1
 
 ########################### CUSTOMIZATIONS #######################
 cd "${BASEDIR}"/src/"${LIB_NAME}" 1>>"${BASEDIR}"/build.log 2>&1 || return 1
+
+BLUR_CLANG22_PATCH="${BASEDIR}/tools/patch/ffmpeg/blur-clang22.patch"
+for BLUR_CLANG22_SOURCE in vf_gblur.c vf_dblur.c vf_bilateral.c; do
+  if ! git apply --reverse --check --include="libavfilter/${BLUR_CLANG22_SOURCE}" "${BLUR_CLANG22_PATCH}" 1>>"${BASEDIR}/build.log" 2>&1; then
+    git apply --include="libavfilter/${BLUR_CLANG22_SOURCE}" "${BLUR_CLANG22_PATCH}" 1>>"${BASEDIR}/build.log" 2>&1 || return 1
+  fi
+done
 git checkout libavformat/file.c 1>>"${BASEDIR}"/build.log 2>&1
 git checkout libavformat/hls.c 1>>"${BASEDIR}"/build.log 2>&1
 git checkout libavformat/protocols.c 1>>"${BASEDIR}"/build.log 2>&1
@@ -555,6 +562,15 @@ fi
 if [[ $? -ne 0 ]]; then
   exit 1
 fi
+
+# Studio: Clang 22 crashes in Register Coalescer on colorspacedsp.c at -O3.
+# Limit the workaround to this C translation unit; keep the other files at -O3.
+case "$("${CC}" --version)" in
+  *"clang version 22."*)
+    printf '\nlibavfilter/colorspacedsp.o: CFLAGS += -O2 -fno-vectorize -fno-slp-vectorize\n' \
+      >> "${BASEDIR}/src/ffmpeg/ffbuild/config.mak" || return 1
+    ;;
+esac
 
 # MinGW may link fcntl(), but does not provide F_SETFD or FD_CLOEXEC.
 ${SED_INLINE} 's/^#define HAVE_FCNTL 1$/#define HAVE_FCNTL 0/' \

@@ -1,0 +1,37 @@
+{
+  "repository": "mahdiramezani-mr/ffmpeg-kit-next",
+  "upstream": "arthenica/ffmpeg-kit-next",
+  "windows_llvm": "22.1.8",
+  "xcode": "26.6",
+  "common_args": [
+    "--speed", "--enable-gpl", "--enable-lib-x264", "--enable-lib-x265",
+    "--enable-lib-zimg", "--enable-lib-lame", "--enable-lib-dav1d"
+  ],
+  "patches": [
+    "patches/studio/06-clang22-colorspace.patch",
+    "patches/studio/07-clang22-blur.patch",
+    "ci/patches/apple-null-options.patch"
+  ],
+  "platforms": {
+    "windows": {
+      "script": "windows.sh",
+      "args": ["--arch=x86-64", "--enable-lib-zlib"],
+      "binary_path": "flutter/flutter/windows/Frameworks/ffmpeg-kit-next"
+    },
+    "android": {
+      "script": "nix-android.sh",
+      "args": ["-p", "android-r27d", "--api-level=24", "--arch=arm-v7a-neon,arm64-v8a,x86-64", "--enable-lib-android-zlib", "--enable-lib-android-media-codec"],
+      "binary_path": "flutter/flutter/android/libs-maven"
+    },
+    "ios": {
+      "script": "nix-ios.sh",
+      "args": ["-p", "xcode26", "-x", "--target=15.0", "--arch=arm64,arm64-simulator,x86-64", "--enable-lib-ios-zlib", "--enable-lib-ios-bzip2", "--enable-lib-ios-libiconv", "--enable-lib-ios-videotoolbox"],
+      "binary_path": "flutter/flutter/ios/ffmpeg_kit_next_flutter/Frameworks"
+    },
+    "macos": {
+      "script": "nix-macos.sh",
+      "args": ["-p", "xcode26", "-x", "--target=10.15", "--arch=arm64,x86-64", "--enable-lib-macos-zlib", "--enable-lib-macos-bzip2", "--enable-lib-macos-libiconv", "--enable-lib-macos-videotoolbox"],
+      "binary_path": "flutter/flutter/macos/ffmpeg_kit_next_flutter/Frameworks"
+    }
+  }
+}
