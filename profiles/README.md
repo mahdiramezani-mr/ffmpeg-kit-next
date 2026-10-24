@@ -4,6 +4,13 @@ This fork publishes the Flutter plugin (`flutter/flutter`) **with its native
 binaries committed**, so an app consumes it straight from git without building
 FFmpeg. Each build configuration is a named profile.
 
+## Automated releases
+
+Use [Publish Studio](PUBLISHING.md) to build Android, iOS, macOS and Windows
+on GitHub Actions from an upstream tag. It preserves the binary-bearing Git
+dependency and applies the remaining local patches. The scripts below remain
+available for historical Studio releases.
+
 ## Using a release
 
 ```yaml
