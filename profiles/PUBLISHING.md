@@ -8,7 +8,7 @@ The Publish Studio workflow builds Android, iOS, macOS and Windows x64 in parall
 2. Keep the branch set to `main` and enter an upstream tag, such as `v9.0.2`.
 3. Keep `build_number=0` to select the next available Studio build number automatically. For example, the first build produces `v9.0.2-studio.1`.
 4. Select `draft` to review the release before publication, or `publish` to publish automatically after every build and verification step succeeds.
-5. Start the workflow. It builds all four platforms, assembles the binary-bearing Git tag and uploads the release assets.
+5. Start the workflow. It builds all four platforms, assembles the binary-bearing Git tag and creates the release.
 6. For a draft, review the output in **Releases** and select **Publish release**. Publishing the draft does not rebuild the binaries.
 
 Both `draft` and `publish` push the Git tag. `build-only` stores the output as CI artifacts without creating a remote tag or release; publishing through the workflow interface afterward requires a new run. An explicit positive build number can also be provided. Published tags are immutable.
@@ -41,7 +41,7 @@ The workflow on `main` delegates to the reusable workflow on `profiles`. Its ref
 ## Outputs and validation
 
 - Native binaries are committed at the release tag. Flutter applications use the package at `flutter/flutter`.
-- Each release also includes four `.tar.gz` native bundles and their SHA-256 checksums. These downloads are optional for applications using the Git dependency.
+- Native bundles and SHA-256 checksums are retained as CI artifacts for assembly and diagnostics. They are not attached to GitHub Releases.
 - `release-build.json` records the upstream and FFmpeg commits, tooling and patch identity, build flags and native file hashes.
 - Windows and macOS run native checks for versions, enabled libraries, blur filters, video export and cancellation.
 - Android and iOS packages are checked for architecture and version coverage. Device runtime and Flutter integration tests are outside this workflow's coverage.

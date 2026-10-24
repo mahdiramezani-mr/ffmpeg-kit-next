@@ -156,9 +156,6 @@ class ReleaseIntegrityTests(unittest.TestCase):
 
     def test_remote_tag_content_is_never_overwritten(self):
         plan = {"release_tag": "v9.0.2-studio.1"}
-        for platform in publish.CONFIG["platforms"]:
-            for suffix in (".tar.gz", ".tar.gz.sha256"):
-                (self.root / f"{plan['release_tag']}-{platform}{suffix}").write_text("asset")
         with patch.object(publish, "read_plan", return_value=plan), \
                 patch.dict(publish.os.environ, {"GITHUB_REPOSITORY": publish.CONFIG["repository"]}), \
                 patch.object(publish, "remote_tag", return_value=True), \
@@ -168,6 +165,25 @@ class ReleaseIntegrityTests(unittest.TestCase):
                 publish.publish(self.root, self.root, "publish")
             self.assertFalse(any(call.args[1] == "push" for call in git.call_args_list))
             run.assert_not_called()
+
+    def test_releases_publish_without_requiring_or_uploading_native_archives(self):
+        plan = {"release_tag": "v9.0.2-studio.1", "ffmpeg_tag": "n9.0.2"}
+        for existing_draft in (False, True):
+            with self.subTest(existing_draft=existing_draft):
+                viewed = type("Result", (), {"returncode": 0 if existing_draft else 1,
+                                             "stdout": '{"isDraft": true}'})()
+                with patch.object(publish, "read_plan", return_value=plan), \
+                        patch.dict(publish.os.environ, {"GITHUB_REPOSITORY": publish.CONFIG["repository"]}), \
+                        patch.object(publish, "remote_tag", return_value=False), \
+                        patch.object(publish, "git", side_effect=["", "commit", "commit", ""]), \
+                        patch.object(publish, "run", return_value=viewed) as run:
+                    publish.publish(self.root, self.root, "publish")
+                commands = [call.args[0] for call in run.call_args_list]
+                self.assertFalse(any(command[:3] == ["gh", "release", "upload"] for command in commands))
+                self.assertFalse(any(str(argument).endswith((".tar.gz", ".sha256"))
+                                     for command in commands for argument in command))
+                self.assertTrue(any(command[:3] == ["gh", "release", "edit"]
+                                    and "--draft=false" in command for command in commands))
 
 
 if __name__ == "__main__":

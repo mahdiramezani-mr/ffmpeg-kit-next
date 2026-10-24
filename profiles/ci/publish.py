@@ -347,10 +347,6 @@ def publish(source, dist, mode):
         raise ValueError("Publishing requires the clean assembled release checkout")
     if git(source, "rev-parse", f"refs/tags/{tag}^{{commit}}") != git(source, "rev-parse", "HEAD"):
         raise ValueError("Local release tag does not point to the assembled commit")
-    assets = [str(dist / f"{tag}-{platform}{suffix}") for platform in CONFIG["platforms"]
-              for suffix in (".tar.gz", ".tar.gz.sha256")]
-    if not all(Path(path).is_file() for path in assets):
-        raise ValueError("Release assets are incomplete")
     if remote_tag(repository, tag):
         git(source, "fetch", "--no-tags", f"https://github.com/{repository}.git", f"refs/tags/{tag}")
         if git(source, "rev-parse", "FETCH_HEAD^{tree}") != git(source, "rev-parse", "HEAD^{tree}"):
@@ -365,10 +361,9 @@ def publish(source, dist, mode):
                 print("Matching release is already published")
                 return
             raise ValueError("Existing published release cannot be changed back to a draft")
-        run(["gh", "release", "upload", tag, "--repo", repository, "--clobber", *assets])
     else:
         run(["gh", "release", "create", tag, "--repo", repository, "--verify-tag", "--draft",
-             "--title", release_title(plan), "--notes-file", dist / "RELEASE-NOTES.md", *assets])
+             "--title", release_title(plan), "--notes-file", dist / "RELEASE-NOTES.md"])
     if mode == "publish":
         run(["gh", "release", "edit", tag, "--repo", repository, "--draft=false"])
 
