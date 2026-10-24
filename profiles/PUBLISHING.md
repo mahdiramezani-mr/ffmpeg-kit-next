@@ -23,6 +23,8 @@ Both `draft` and `publish` push the Git tag. `build-only` stores the output as C
 
 Release descriptions use `profiles/ci/release-notes.md`. Versions, tags and source links are substituted automatically. Update the template when capabilities, architectures or validation coverage change.
 
+Keep `Changes` limited to differences from the preceding Studio release. List patches still applied on top of upstream under `Retained Studio patches`, and link to upstream release notes for inherited changes.
+
 Each release starts from the selected upstream tag and adds the configured patches and native bundles. Native changes and binaries do not need to be merged into `main`.
 
 The workflow on `main` delegates to the reusable workflow on `profiles`. Its reference definition is `profiles/ci/dispatch.yml`. Update both definitions when changing the dispatch interface. Patch and build-flag changes require updates only on `profiles`.

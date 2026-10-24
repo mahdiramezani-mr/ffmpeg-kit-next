@@ -1,14 +1,17 @@
-Native FFmpegKitNext {{WRAPPER_VERSION}} binaries for video editing and export, based on FFmpeg {{FFMPEG_VERSION}}.
-
-This Studio release combines [upstream {{UPSTREAM_TAG}}]({{SOURCE_URL}}) with the remaining Windows Clang 22 and Apple Flutter fixes, with native binaries included at the tag.
+Native FFmpegKitNext {{WRAPPER_VERSION}} binaries for video editing and export, based on FFmpeg {{FFMPEG_VERSION}}, with the Studio library profile.
 
 ## Changes
 
-- Include upstream Flutter Windows support and fixes for cancellation of running FFmpeg sessions.
-- Fix crashes in the `gblur`, `dblur` and `bilateral` filters on Windows x64 with Clang 22. The fixes preserve the filtering algorithms.
-- Fix Flutter buffer and stream creation with default options on iOS and macOS by normalizing `NSNull` arguments.
-- Work around the Clang 22 compiler crash when building `colorspacedsp.c` on Windows, without changing the filtering algorithm.
-- Build and package all four supported platforms automatically from pinned sources, preserving Apple framework links and executable permissions.
+- Update the Studio release base to upstream {{UPSTREAM_TAG}}.
+- Automate builds and release packaging for all four supported platforms.
+
+See the [upstream release notes](https://github.com/arthenica/ffmpeg-kit-next/releases/tag/{{UPSTREAM_TAG}}) for changes included in {{UPSTREAM_TAG}}.
+
+## Retained Studio patches
+
+- Prevent Windows x64 crashes in the `gblur`, `dblur` and `bilateral` filters with Clang 22, preserving the filtering algorithms.
+- Handle default Flutter buffer and stream options on iOS and macOS by normalizing `NSNull` arguments.
+- Work around the Clang 22 compiler crash in `colorspacedsp.c` on Windows.
 
 ## Capabilities
 
