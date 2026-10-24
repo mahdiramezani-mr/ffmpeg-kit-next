@@ -1,0 +1,202 @@
+name: Publish Studio
+run-name: Studio ${{ inputs.upstream_tag }} build ${{ inputs.build_number }} (${{ inputs.mode }})
+
+on:
+  workflow_call:
+    inputs:
+      upstream_tag:
+        type: string
+        required: true
+      build_number:
+        type: string
+        required: true
+      mode:
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: studio-${{ inputs.upstream_tag }}-${{ inputs.build_number }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      control_sha: ${{ steps.plan.outputs.control_sha }}
+      upstream_sha: ${{ steps.plan.outputs.upstream_sha }}
+      release_tag: ${{ steps.plan.outputs.release_tag }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: profiles
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+      - name: Check release tooling
+        run: python -m unittest discover -s profiles/ci -p 'test_*.py'
+      - name: Pin source and reject existing tags
+        id: plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPSTREAM_TAG: ${{ inputs.upstream_tag }}
+          BUILD_NUMBER: ${{ inputs.build_number }}
+        run: python profiles/ci/publish.py plan --upstream-tag "$UPSTREAM_TAG" --number "$BUILD_NUMBER"
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: studio-plan
+          path: dist/plan.json
+          if-no-files-found: error
+          retention-days: 14
+          overwrite: true
+
+  build:
+    needs: plan
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: android
+            runner: ubuntu-24.04
+          - platform: ios
+            runner: macos-26
+          - platform: macos
+            runner: macos-26
+          - platform: windows
+            runner: windows-2025
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ needs.plan.outputs.control_sha }}
+      - name: Keep source line endings consistent
+        shell: bash
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v7.0.1
+        with:
+          repository: arthenica/ffmpeg-kit-next
+          ref: ${{ needs.plan.outputs.upstream_sha }}
+          path: source
+          fetch-depth: 1
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: studio-plan
+          path: dist
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+      - name: Install Nix
+        if: runner.os != 'Windows'
+        uses: cachix/install-nix-action@d9186cbdca7adedf113a159fa91f725a27866771
+        with:
+          extra_nix_config: accept-flake-config = true
+      - name: Select pinned Xcode
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          VERSION=$(python -c 'import json; print(json.load(open("profiles/publish.json"))["xcode"])')
+          APP="/Applications/Xcode_${VERSION}.app"
+          test -d "$APP"
+          echo "DEVELOPER_DIR=$APP/Contents/Developer" >> "$GITHUB_ENV"
+          printf 'export DEVELOPER_DIR="%s/Contents/Developer"\n' "$APP" > ~/.xcode.for.ffmpeg.kit.sh
+      - name: Install MSYS2
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: CLANG64
+          update: true
+          install: >-
+            make autoconf-wrapper automake-wrapper libtool patch diffutils
+            git curl wget rsync pkgconf zip unzip tar xz gzip
+            gperf bison gettext-devel texinfo autogen python perl ruby
+          pacboy: clang:p lld:p llvm:p pkgconf:p cmake:p meson:p ninja:p nasm:p
+      - name: Pin Windows compiler
+        if: runner.os == 'Windows'
+        id: msys
+        shell: msys2 {0}
+        run: |
+          bash profiles/ci/setup-windows.sh
+          echo "bash_path=$(cygpath -w /usr/bin/bash.exe)" >> "$GITHUB_OUTPUT"
+      - name: Build Windows and run native regressions
+        if: runner.os == 'Windows'
+        shell: pwsh
+        env:
+          MSYS_BASH: ${{ steps.msys.outputs.bash_path }}
+        run: '& "$env:pythonLocation/python.exe" profiles/ci/publish.py build --platform windows --bash "$env:MSYS_BASH"'
+      - name: Build native bundle
+        if: runner.os != 'Windows'
+        shell: bash
+        env:
+          PLATFORM: ${{ matrix.platform }}
+        run: python profiles/ci/publish.py build --platform "$PLATFORM"
+      - name: Upload native bundle
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: studio-${{ matrix.platform }}
+          path: |
+            dist/*.tar.gz
+            dist/*.sha256
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+          overwrite: true
+      - name: Upload build diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: studio-logs-${{ matrix.platform }}
+          path: |
+            source/build.log
+            source/src/ffmpeg/ffbuild/config.log
+            dist/${{ matrix.platform }}.json
+          if-no-files-found: ignore
+          retention-days: 14
+          overwrite: true
+
+  release:
+    needs: [plan, build]
+    runs-on: macos-26
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ needs.plan.outputs.control_sha }}
+      - uses: actions/checkout@v7.0.1
+        with:
+          repository: arthenica/ffmpeg-kit-next
+          ref: ${{ needs.plan.outputs.upstream_sha }}
+          path: source
+          fetch-depth: 0
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          pattern: studio-{plan,android,ios,macos,windows}
+          path: dist
+          merge-multiple: true
+      - name: Verify all bundles and assemble binary tag
+        run: python profiles/ci/publish.py assemble
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: studio-release
+          path: |
+            dist/release.bundle
+            dist/RELEASE-NOTES.md
+            source/release-build.json
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+          overwrite: true
+      - name: Push tag and create release
+        if: inputs.mode != 'build-only'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_MODE: ${{ inputs.mode }}
+        run: |
+          gh auth setup-git
+          python profiles/ci/publish.py publish --mode "$RELEASE_MODE"
