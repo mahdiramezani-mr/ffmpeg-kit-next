@@ -137,7 +137,7 @@ get_app_specific_cflags() {
     APP_FLAGS="-std=c99 -Wno-unused-function -DOS_IOS"
     ;;
   libwebp | xvidcore)
-    APP_FLAGS="-fno-common -DPIC"
+    APP_FLAGS="-std=gnu17 -fno-common -DPIC"
     ;;
   openh264 | x265)
     APP_FLAGS="-Wno-unused-function"
@@ -226,7 +226,7 @@ get_cxxflags() {
     echo "-fno-rtti ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
     ;;
   rubberband)
-    echo "-fno-rtti -Wno-c++11-narrowing ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
+    echo "-fno-rtti -Wno-c++11-narrowing -include stddef.h ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
     ;;
   libjxl)
     echo "-std=c++17 ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
@@ -234,14 +234,20 @@ get_cxxflags() {
   libsvtav1)
     echo "-std=c++11 ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
     ;;
-  srt | tesseract | zimg)
+  srt)
     echo "-std=c++11 ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
+    ;;
+  tesseract)
+    echo "-std=c++11 -include cstdlib ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
     ;;
   vvenc)
     echo "-std=c++14 ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
     ;;
   x265)
     echo "-std=c++11 -fno-exceptions ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${EXTRA_CXXFLAGS}"
+    ;;
+  zimg)
+    echo "-std=c++11 -include exception ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
     ;;
   *)
     echo "-std=c++11 -fno-exceptions -fno-rtti ${BITCODE_FLAGS} ${COMMON_CFLAGS} ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS}"
@@ -338,6 +344,10 @@ get_ldflags() {
 }
 
 set_toolchain_paths() {
+  # CROSS-COMPILING, SO TOOLS THAT RUN ON THE BUILD MACHINE NEED THEIR OWN
+  # COMPILER
+  set_host_cc "$(command -v clang)"
+
   if [ ! -f "${FFMPEG_KIT_TMPDIR}/gas-preprocessor.pl" ]; then
     DOWNLOAD_RESULT=$(download "https://github.com/arthenica/gas-preprocessor/raw/v20210917/gas-preprocessor.pl" "gas-preprocessor.pl" "exit")
     if [[ ${DOWNLOAD_RESULT} -ne 0 ]]; then

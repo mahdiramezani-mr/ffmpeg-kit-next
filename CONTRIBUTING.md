@@ -46,9 +46,8 @@ specific feature.
 Ensure that your changes rely on official documented methods and test your changes using the test applications we have
 under the [FFmpegKitNext Test](https://github.com/arthenica/ffmpeg-kit-next-test) repository.
 
-`main` branch of `FFmpegKitNext` includes only the latest released source code. Therefore, please open your pull requests
-against the development branches (`development` for native platforms, `development-react-native` for
-`react-native`, `development-flutter` for `flutter`). 
+`main` branch of `FFmpegKitNext` includes only the latest released source code. All development takes place on the
+`development` branch. Please open all pull requests against `development`.
 
 Note that PRs about styling and cosmetic changes will not be accepted.
 

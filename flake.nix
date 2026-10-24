@@ -119,6 +119,11 @@
       linuxPkgConfigShellHook = pkgs: ''
         ${toolchainShellHook pkgs}
 
+        unset NIX_CFLAGS_COMPILE
+        unset NIX_CFLAGS_COMPILE_FOR_BUILD
+        unset NIX_LDFLAGS
+        unset NIX_LDFLAGS_FOR_BUILD
+
         export FFMPEG_KIT_SYSTEM_PKG_CONFIG_LIBDIR="${linuxSystemPkgConfigLibdir pkgs}"
         unset FFMPEG_KIT_NIX_PKG_CONFIG_LIBDIR
         unset PKG_CONFIG_LIBDIR
@@ -161,6 +166,7 @@
 
       androidPackages = pkgs: with pkgs; commonPackages pkgs ++ [
         autogen
+        clang
         coreutils
         doxygen
         file
@@ -174,10 +180,6 @@
         ragel
         texinfo
         which
-      ] ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
-        clang
-      ] ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
-        gcc
       ];
 
       linuxToolchainPackages = pkgs: with pkgs; commonToolPackages pkgs ++ [
@@ -187,7 +189,6 @@
         file
         findutils
         gawk
-        gcc
         gnumake
         gnugrep
         groff
@@ -205,6 +206,7 @@
 
       webToolchainPackages = pkgs: commonToolPackages pkgs ++ (with pkgs; [
         binaryen
+        clang
         coreutils
         emscripten
         file

@@ -33,11 +33,146 @@ get_pkg_config_libdir() {
     PKG_CONFIG_LIBDIR_VALUE+=":${FFMPEG_KIT_NIX_PKG_CONFIG_LIBDIR}"
   fi
 
+  if [[ -z ${FFMPEG_KIT_SYSTEM_PKG_CONFIG_LIBDIR} ]] && [[ -z ${FFMPEG_KIT_NIX_PKG_CONFIG_LIBDIR} ]]; then
+    local HOST_PC_PATH
+    HOST_PC_PATH=$(pkg-config --variable pc_path pkg-config 2>>"${BASEDIR}"/build.log)
+    if [[ -n ${HOST_PC_PATH} ]]; then
+      PKG_CONFIG_LIBDIR_VALUE+=":${HOST_PC_PATH}"
+    fi
+  fi
+
   echo "${PKG_CONFIG_LIBDIR_VALUE}"
 }
 
 set_default_min_linux_platform_version() {
   local _TMP
+}
+
+is_linux_pkg_config_build_directory() {
+  [[ "$1" == "$2" || "$1" == "$2/"* || "$1" == /nix/store/* ]]
+}
+
+filter_linux_pkg_config_private_flags() {
+  local INPUT="$1" BUILD_ROOT="$2"
+  local RAW="" VALUE="" QUOTE="" CHAR NEXT ACTIVE=0 INDEX
+  local -a RAW_FLAGS=() FLAGS=()
+
+  # Parse shell quoting as data. Never evaluate metadata as shell commands.
+  for ((INDEX = 0; INDEX < ${#INPUT}; INDEX++)); do
+    CHAR="${INPUT:INDEX:1}"
+    if [[ -z "$QUOTE" && "$CHAR" == [[:space:]] ]]; then
+      if [[ "$ACTIVE" == 1 ]]; then
+        RAW_FLAGS+=("$RAW")
+        FLAGS+=("$VALUE")
+        RAW="" VALUE="" ACTIVE=0
+      fi
+      continue
+    fi
+    RAW+="$CHAR"
+    ACTIVE=1
+    if [[ "$QUOTE" == "'" ]]; then
+      if [[ "$CHAR" == "'" ]]; then QUOTE=""; else VALUE+="$CHAR"; fi
+    elif [[ "$CHAR" == '"' ]]; then
+      if [[ "$QUOTE" == '"' ]]; then QUOTE=""; else QUOTE='"'; fi
+    elif [[ -z "$QUOTE" && "$CHAR" == "'" ]]; then
+      QUOTE="'"
+    elif [[ "$CHAR" == '\' ]]; then
+      NEXT="${INPUT:INDEX+1:1}"
+      if [[ -z "$NEXT" ]]; then
+        printf 'error: trailing escape in Libs.private\n' >&2
+        return 1
+      fi
+      if [[ -z "$QUOTE" || "$NEXT" == [\$\`\"\\] ]]; then
+        RAW+="$NEXT"
+        VALUE+="$NEXT"
+        INDEX=$((INDEX + 1))
+      else
+        VALUE+="$CHAR"
+      fi
+    else
+      VALUE+="$CHAR"
+    fi
+  done
+  if [[ -n "$QUOTE" ]]; then
+    printf 'error: unterminated quote in Libs.private\n' >&2
+    return 1
+  fi
+  if [[ "$ACTIVE" == 1 ]]; then
+    RAW_FLAGS+=("$RAW")
+    FLAGS+=("$VALUE")
+  fi
+
+  printf 'Libs.private:'
+  for ((INDEX = 0; INDEX < ${#FLAGS[@]}; INDEX++)); do
+    VALUE="${FLAGS[INDEX]}"
+    if [[ "$VALUE" == -L && $((INDEX + 1)) -lt ${#FLAGS[@]} ]] &&
+      is_linux_pkg_config_build_directory "${FLAGS[INDEX+1]}" "$BUILD_ROOT"; then
+      INDEX=$((INDEX + 1))
+      continue
+    fi
+    if [[ "$VALUE" == -L* ]] && is_linux_pkg_config_build_directory "${VALUE:2}" "$BUILD_ROOT"; then
+      continue
+    fi
+    printf ' %s' "${RAW_FLAGS[INDEX]}"
+  done
+}
+
+rebase_linux_pkg_config_paths() {
+  local LINE="$1" BUILD_ROOT="$2" PREFIX BEFORE AFTER RESULT
+  for PREFIX in "$BUILD_ROOT/ffmpeg-kit" "$BUILD_ROOT/ffmpeg"; do
+    RESULT=""
+    while [[ "$LINE" == *"$PREFIX"* ]]; do
+      BEFORE="${LINE%%"$PREFIX"*}"
+      AFTER="${LINE#*"$PREFIX"}"
+      if [[ -z "$AFTER" || "${AFTER:0:1}" == [/[:space:]\"\'] ]]; then
+        RESULT+="$BEFORE"'${prefix}'
+      else
+        RESULT+="$BEFORE$PREFIX"
+      fi
+      LINE="$AFTER"
+    done
+    LINE="$RESULT$LINE"
+  done
+  printf '%s\n' "$LINE"
+}
+
+relocate_linux_pkg_config_file() {
+  local FILE="$1" BUILD_ROOT="$2" TEMP LINE
+  while [[ "$BUILD_ROOT" == */ && "$BUILD_ROOT" != / ]]; do BUILD_ROOT="${BUILD_ROOT%/}"; done
+  if [[ "$BUILD_ROOT" != /* || "$BUILD_ROOT" == / ]]; then
+    printf 'error: original build directory must be an absolute path\n' >&2
+    return 1
+  fi
+  if [[ ! -f "$FILE" ]]; then
+    printf 'error: descriptor not found: %s\n' "$FILE" >&2
+    return 1
+  fi
+  TEMP="$(mktemp "${TMPDIR:-/tmp}/ffmpeg-kit-pkgconfig.XXXXXX")" || return 1
+  if ! (
+    while IFS= read -r LINE || [[ -n "$LINE" ]]; do
+      case "$LINE" in
+      prefix=*)
+        printf '%s\n' 'prefix=${pcfiledir}/..'
+        continue
+        ;;
+      Libs.private:*)
+        # Only shared libraries are shipped. Private search paths refer to the
+        # static build inputs; retain library flags and non-build directories.
+        LINE="$(filter_linux_pkg_config_private_flags "${LINE#Libs.private:}" "$BUILD_ROOT")" || exit 1
+        ;;
+      esac
+      rebase_linux_pkg_config_paths "$LINE" "$BUILD_ROOT"
+    done < "$FILE"
+  ) > "$TEMP"; then
+    rm -f "$TEMP"
+    return 1
+  fi
+  # Preserve the descriptor's permissions, and leave it intact on parse errors.
+  if ! cat "$TEMP" > "$FILE"; then
+    rm -f "$TEMP"
+    return 1
+  fi
+  rm -f "$TEMP"
 }
 
 install_pkg_config_file() {
@@ -57,9 +192,23 @@ install_pkg_config_file() {
     exit 1
   fi
 
-  # UPDATE PATHS
-  ${SED_INLINE} "s|${LIB_INSTALL_BASE}/ffmpeg-kit|${BASEDIR}/prebuilt/$(get_bundle_directory)/ffmpeg-kit-next|g" "$DESTINATION" 1>>"${BASEDIR}"/build.log 2>&1 || return 1
-  ${SED_INLINE} "s|${LIB_INSTALL_BASE}/ffmpeg|${BASEDIR}/prebuilt/$(get_bundle_directory)/ffmpeg-kit-next|g" "$DESTINATION" 1>>"${BASEDIR}"/build.log 2>&1 || return 1
+  # REBASE PUBLIC PATHS AND DROP PRIVATE SEARCH PATHS TO STATIC BUILD INPUTS.
+  # THE PUBLISHED LINUX BUNDLE CONTAINS SHARED LIBRARIES ONLY.
+  relocate_linux_pkg_config_file "$DESTINATION" "${LIB_INSTALL_BASE}" 1>>"${BASEDIR}"/build.log 2>&1 || return 1
+}
+
+# PRINTS A LINKER FLAG THAT GIVES A SHARED LIBRARY A RUNPATH OF $ORIGIN, SO THE
+# BUNDLE'S LIBRARIES FIND EACH OTHER IN THEIR OWN DIRECTORY WITHOUT
+# LD_LIBRARY_PATH. $ORIGIN IS PASSED IN A LINKER RESPONSE FILE BECAUSE IT DOES
+# NOT SURVIVE FFMPEG'S configure, make AND libtool UNLESS IT IS ESCAPED
+# DIFFERENTLY FOR EACH OF THEM
+get_origin_runpath_ldflag() {
+  local RESPONSE_FILE="${FFMPEG_KIT_TMPDIR}/linux-origin-runpath.rsp"
+
+  mkdir -p "${FFMPEG_KIT_TMPDIR}" 1>>"${BASEDIR}"/build.log 2>&1 || return 1
+  printf '%s\n' '-rpath' '$ORIGIN' >"${RESPONSE_FILE}" 2>>"${BASEDIR}"/build.log || return 1
+
+  echo "-Wl,@${RESPONSE_FILE}"
 }
 
 get_bundle_directory() {
@@ -291,8 +440,14 @@ get_cxxflags() {
   libjxl)
     echo "-stdlib=libstdc++ -std=c++17 ${OPTIMIZATION_FLAGS} ${EXTRA_CXXFLAGS} ${BUILD_DATE} $(get_arch_specific_cflags) -fcxx-exceptions -fPIC"
     ;;
-  libsvtav1 | srt | tesseract | vvenc | zimg)
+  libsvtav1 | srt | vvenc)
     echo "${COMMON_FLAGS} -fcxx-exceptions -fPIC"
+    ;;
+  tesseract)
+    echo "${COMMON_FLAGS} -fcxx-exceptions -include cstdlib -fPIC"
+    ;;
+  zimg)
+    echo "${COMMON_FLAGS} -fcxx-exceptions -include exception -fPIC"
     ;;
   *)
     echo "${COMMON_FLAGS} -fno-exceptions -fno-rtti"
@@ -413,7 +568,7 @@ Description: FFmpeg for applications
 Version: ${FFMPEGKIT_VERSION}
 
 Libs: -L\${libdir} -lstdc++ -lffmpegkit -lavutil
-Requires: libavfilter, libswscale, libavformat, libavcodec, libswresample, libavutil
+Requires: libavdevice, libavfilter, libswscale, libavformat, libavcodec, libswresample, libavutil
 Cflags: -I\${includedir}
 EOF
 }
@@ -516,6 +671,10 @@ set_toolchain_paths() {
   export RANLIB=$(command -v "llvm-ranlib$CLANG_POSTFIX")
   export STRIP=$(command -v "llvm-strip$CLANG_POSTFIX")
   export NM=$(command -v "llvm-nm$CLANG_POSTFIX")
+
+  # LINUX BUILDS ARE NATIVE, SO THE C COMPILER ALSO BUILDS THE TOOLS THAT RUN ON
+  # THE BUILD MACHINE
+  set_host_cc "${CC}"
 
   # ARM64 ASSEMBLY SOURCES ARE GAS .S FILES, WHICH THE C COMPILER ASSEMBLES.
   # LLVM-AS ONLY UNDERSTANDS LLVM IR, SO IT CANNOT BE USED HERE.

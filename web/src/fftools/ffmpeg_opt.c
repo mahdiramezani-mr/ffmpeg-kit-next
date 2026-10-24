@@ -7,7 +7,7 @@
  * Copyright (c) 2023-2024 ARTHENICA LTD
  *
  * This modified file is part of FFmpegKitNext.
- * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.1.
+ * It is derived from FFmpeg's fftools/ffmpeg_opt.c at tag n9.0.2.
  *
  * The original FFmpeg source is licensed under the GNU Lesser General
  * Public License version 2.1 or later. FFmpegKitNext distributes this
@@ -32,6 +32,10 @@
  * Modification history:
  *
  * ffmpeg-kit changes by Taner Sener
+ *
+ * 09.2026
+ * --------------------------------------------------------
+ * - FFmpeg 9.0.2 changes migrated
  *
  * 08.2026
  * --------------------------------------------------------
@@ -142,7 +146,9 @@ __thread int debug_ts          = 0;
 __thread int exit_on_error     = 0;
 __thread int abort_on_flags    = 0;
 __thread int print_stats       = -1;
-__thread int stdin_interaction = 1;
+/* ffmpeg-kit runs inside an application, so it never reads the keyboard or takes over
+ * the terminal unless -stdin is passed. */
+__thread int stdin_interaction = 0;
 __thread float max_error_rate  = 2.0/3;
 __thread char *filter_nbthreads;
 __thread int filter_complex_nbthreads = 0;

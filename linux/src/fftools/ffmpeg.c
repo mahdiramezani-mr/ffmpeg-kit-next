@@ -7,7 +7,7 @@
  * Copyright (c) 2023-2024 ARTHENICA LTD
  *
  * This modified file is part of FFmpegKitNext.
- * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.1.
+ * It is derived from FFmpeg's fftools/ffmpeg.c at tag n9.0.2.
  *
  * The original FFmpeg source is licensed under the GNU Lesser General
  * Public License version 2.1 or later. FFmpegKitNext distributes this
@@ -32,6 +32,15 @@
  * Modification history:
  *
  * ffmpeg-kit changes by Taner Sener
+ *
+ * 10.2026
+ * --------------------------------------------------------
+ * - cancel requested before transcoding starts, e.g. while opening inputs,
+ *   returns 255 instead of 0
+ *
+ * 09.2026
+ * --------------------------------------------------------
+ * - FFmpeg 9.0.2 changes migrated
  *
  * 08.2026
  * --------------------------------------------------------
@@ -340,9 +349,9 @@ void term_init(void)
 
             tcsetattr (0, TCSANOW, &tty);
         }
-        if (handleSIGQUIT == 1)
-            SIGNAL(SIGQUIT, sigterm_handler); /* Quit (POSIX).  */
     }
+    if (handleSIGQUIT == 1)
+        SIGNAL(SIGQUIT, sigterm_handler); /* Quit (POSIX).  */
 #endif
 
     if (handleSIGINT == 1)
@@ -1043,7 +1052,7 @@ static int transcode(Scheduler *sch)
     while (!sch_wait(sch, stats_period, &transcode_ts)) {
         int64_t cur_time= av_gettime_relative();
 
-        if (received_nb_signals)
+        if (received_nb_signals || cancelRequested(globalSessionId))
             break;
 
         /* if 'q' pressed, exits */
@@ -1172,7 +1181,7 @@ static int ffmpeg_var_cleanup(void)
     exit_on_error = 0;
     abort_on_flags = 0;
     print_stats = -1;
-    stdin_interaction = 1;
+    stdin_interaction = 0;
     max_error_rate = 2.0 / 3;
     filter_nbthreads = NULL;
     filter_complex_nbthreads = 0;
@@ -1284,7 +1293,11 @@ int ffmpeg_execute(int argc, char **argv)
           (ret == FFMPEG_ERROR_RATE_EXCEEDED) ?  69 : ret;
 
 finish:
-    if (ret == AVERROR_EXIT)
+    // A CANCEL SEEN BEFORE transcode(), E.G. WHILE OPENING INPUTS, ENDS WITH
+    // AVERROR_EXIT AND JUMPS HERE; REPORT IT AS CANCELLED, NOT AS SUCCESS
+    if (received_nb_signals || cancelRequested(globalSessionId))
+        ret = 255;
+    else if (ret == AVERROR_EXIT)
         ret = 0;
 
     ffmpeg_cleanup(ret);
