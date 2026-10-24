@@ -1,55 +1,52 @@
-# انتشار Studio
+# Studio release publishing
 
-بیلد Android، iOS، macOS و Windows x64 روی GitHub Actions انجام می‌شود.
-شاخه پیش‌فرض `main` می‌ماند؛ فقط ورودی اجرای workflow روی آن است.
-ابزارها، تنظیمات و پچ‌ها در شاخه `profiles` نگهداری می‌شوند.
+The Publish Studio workflow builds Android, iOS, macOS and Windows x64 in parallel on GitHub Actions. The default branch remains `main`. Release tooling, configuration and patches are maintained on `profiles`.
 
-## انتشار هر نسخه
+## Publish a release
 
-1. در [Actions → Publish Studio](https://github.com/mahdiramezani-mr/ffmpeg-kit-next/actions/workflows/publish-studio.yml) روی **Run workflow** بزن.
-2. شاخه را `main` نگه دار و `upstream_tag` را وارد کن؛ مثلاً `v9.0.2`.
-3. `build_number=0` را نگه دار تا شماره آزاد بعدی خودکار انتخاب شود؛ خروجی مثلاً `v9.0.2-studio.1` خواهد بود.
-4. `mode=draft` را برای مرور خروجی یا `mode=publish` را برای انتشار خودکار پس از موفقیت همه بیلدها انتخاب کن.
-5. **Run workflow** را بزن. چهار بیلد موازی اجرا می‌شوند؛ انتقال فایل، ساخت تگ و بارگذاری بسته‌ها خودکار است.
-6. در حالت Draft، خروجی را بررسی و در **Releases** روی **Publish release** بزن؛ بیلد دوباره لازم نیست.
+1. Open [Actions > Publish Studio](https://github.com/mahdiramezani-mr/ffmpeg-kit-next/actions/workflows/publish-studio.yml) and select **Run workflow**.
+2. Keep the branch set to `main` and enter an upstream tag, such as `v9.0.2`.
+3. Keep `build_number=0` to select the next available Studio build number automatically. For example, the first build produces `v9.0.2-studio.1`.
+4. Select `draft` to review the release before publication, or `publish` to publish automatically after every build and verification step succeeds.
+5. Start the workflow. It builds all four platforms, assembles the binary-bearing Git tag and uploads the release assets.
+6. For a draft, review the output in **Releases** and select **Publish release**. Publishing the draft does not rebuild the binaries.
 
-`draft` نیز تگ قابل مصرف را push می‌کند. `build-only` هیچ تگ یا Release ریموت ایجاد نمی‌کند و خروجی را فقط به‌صورت artifact نگه می‌دارد.
-برای تبدیل اجرای build-only به Release از رابط، اجرای تازه لازم است؛ برای استفاده عادی Draft را انتخاب کن.
-تگ منتشرشده هرگز جابه‌جا نمی‌شود. شماره ساخت مشخص نیز قابل واردکردن است.
+Both `draft` and `publish` push the Git tag. `build-only` stores the output as CI artifacts without creating a remote tag or release; publishing through the workflow interface afterward requires a new run. An explicit positive build number can also be provided. Published tags are immutable.
 
-## افزودن تغییر اختصاصی
+## Maintain patches and build settings
 
-1. روی شاخه `profiles` کار کن.
-2. patch را در `profiles/ci/patches/` اضافه کن و مسیرش را در `profiles/publish.json` ثبت کن.
-3. فلگ‌ها، معماری‌ها، LLVM و Xcode نیز از همین JSON و اسکریپت راه‌اندازی Windows تنظیم می‌شوند.
-4. تغییرات را commit و فقط `profiles` را push کن؛ سپس workflow را از `main` اجرا کن.
-5. اگر upstream دقیقاً همان patch را داشته باشد، اعمال مجدد آن رد می‌شود؛ conflict با نام patch بیلد را متوقف می‌کند و باید سازگاری آن بررسی شود.
+1. Check out `profiles`.
+2. Add patches under `profiles/ci/patches/` and register them in `profiles/publish.json`.
+3. Update platform flags, architectures and toolchain settings in the same configuration as required. LLVM package versions must also match `profiles/ci/setup-windows.sh`.
+4. Commit and push the changes to `profiles`, then start Publish Studio from `main`.
+5. If upstream already contains an exact patch, the workflow skips applying it again. A conflicting patch stops the build and must be reviewed or rebased for the selected upstream tag.
 
-قالب توضیحات Release در `profiles/ci/release-notes.md` است. ساختار نسخه‌های قبلی حفظ می‌شود و شماره نسخه، تگ و لینک سورس خودکار جای‌گذاری می‌شوند. با تغییر قابلیت‌ها، معماری‌ها یا دامنه تست، همین قالب را هم به‌روز کن.
+Release descriptions use `profiles/ci/release-notes.md`. Versions, tags and source links are substituted automatically. Update the template when capabilities, architectures or validation coverage change.
 
-به merge پچ‌های native یا باینری‌ها در `main` نیازی نیست. تگ همیشه از سورس تگ upstream به‌علاوه پچ‌های انتخاب‌شده و چهار بسته ساخته می‌شود.
-فایل `.github/workflows/publish-studio.yml` روی `main` یک ورودی کوچک است که workflow شاخه `profiles` را صدا می‌زند.
-نسخه مرجع این ورودی در `profiles/ci/dispatch.yml` است؛ فقط اگر خود ورودی‌ها را تغییر دادی، آن را روی `main` هم به‌روز کن.
-برای افزودن patch یا تغییر فلگ، تغییری در `main` لازم نیست.
+Each release starts from the selected upstream tag and adds the configured patches and native bundles. Native changes and binaries do not need to be merged into `main`.
 
-## خطا و اجرای دوباره
+The workflow on `main` delegates to the reusable workflow on `profiles`. Its reference definition is `profiles/ci/dispatch.yml`. Update both definitions when changing the dispatch interface. Patch and build-flag changes require updates only on `profiles`.
 
-- برای خطای موقت **Re-run failed jobs** را بزن؛ artifactها ۱۴ روز نگه داشته می‌شوند.
-- تغییر ابزار یا patch در اجرای قبلی وارد نمی‌شود؛ برای آن اجرای تازه لازم است.
-- اگر push تگ موفق و ایجاد Release ناموفق شده باشد، اجرای دوباره فقط با محتوای یکسان تگ ادامه می‌دهد.
-- اگر تگ موجود است، برای اجرای تازه شماره `0` را نگه دار؛ تگ قبلی بازنویسی نمی‌شود.
-- سقف هر job میزبانی‌شده ۶ ساعت است. اگر بیلد از سقف عبور کند، همان پلتفرم باید بر اساس معماری تقسیم شود.
-- Windows فعلاً LLVM `22.1.8` دارد؛ تغییر آن نیازمند هماهنگی نسخه بسته‌ها در `setup-windows.sh` است. Xcode فعلاً `26.6` است.
+## Retry failed runs
 
-## خروجی و استفاده
+- Use **Re-run failed jobs** for transient failures. CI artifacts are retained for 14 days.
+- Each run pins the tooling and source commits. Tooling or patch changes require a new run.
+- If the tag was pushed but release creation failed, retrying proceeds only when the assembled content matches the existing tag.
+- For a new run after a tag already exists, use build number `0` to select the next available number.
+- Hosted jobs have a six-hour limit. Builds exceeding this limit must be split by architecture before publication.
+- Windows currently uses LLVM `22.1.8`; Xcode is pinned to `26.6`. Toolchain updates require compatibility and regression checks.
 
-- تگ شامل باینری‌های native است؛ Flutter همان مسیر `flutter/flutter` را مصرف می‌کند.
-- چهار بسته `.tar.gz` و checksum هرکدام به Release پیوست می‌شوند.
-- `release-build.json` سورس upstream و FFmpeg، ابزارها و patchها، فلگ‌ها و hash فایل‌ها را ثبت می‌کند.
-- Windows و macOS تست native نسخه، کتابخانه‌ها، blur و cancellation دارند.
-- Android/iOS از نظر بسته‌بندی، معماری و نسخه بررسی می‌شوند؛ اجرای برنامه Flutter روی دستگاه جزو CI نیست.
-- پروفایل فعلی شامل Linux، Web، tvOS، visionOS و Windows arm64 نیست.
-- secret یا PAT جدید لازم نیست؛ workflow از `GITHUB_TOKEN` استفاده می‌کند و فقط job انتشار دسترسی نوشتن دارد.
+## Outputs and validation
+
+- Native binaries are committed at the release tag. Flutter applications use the package at `flutter/flutter`.
+- Each release also includes four `.tar.gz` native bundles and their SHA-256 checksums. These downloads are optional for applications using the Git dependency.
+- `release-build.json` records the upstream and FFmpeg commits, tooling and patch identity, build flags and native file hashes.
+- Windows and macOS run native checks for versions, enabled libraries, blur filters, video export and cancellation.
+- Android and iOS packages are checked for architecture and version coverage. Device runtime and Flutter integration tests are outside this workflow's coverage.
+- The current profile does not build Linux, Web, tvOS, visionOS or Windows arm64.
+- The workflow uses `GITHUB_TOKEN`; no additional PAT or secret is required. Only the release job receives write access.
+
+## Consume a release
 
 ```yaml
 dependencies:
@@ -60,11 +57,10 @@ dependencies:
       ref: v9.0.2-studio.1
 ```
 
-ثبت Maven محلی Android و تنظیمات Apple/Windows مطابق `flutter/flutter/BUILD.md` لازم است.
-از `git push --tags` یا force-push استفاده نکن؛ workflow فقط تگ همان انتشار را push می‌کند.
+Follow `flutter/flutter/BUILD.md` for Android Maven registration and Apple/Windows integration. The publishing workflow pushes only its selected release tag; a bulk tag push or force-push is not required.
 
-## بررسی محلی ابزار
+## Check release tooling locally
 
-```powershell
+```sh
 python -m unittest discover -s profiles/ci -p "test_*.py"
 ```

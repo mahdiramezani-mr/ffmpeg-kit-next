@@ -19,7 +19,7 @@ dependencies:
     git:
       url: https://github.com/mahdiramezani-mr/ffmpeg-kit-next.git
       path: flutter/flutter
-      ref: v9.0.0-studio.1
+      ref: v9.0.2-studio.1
 ```
 
 Always reference a tag, never a branch: branches carry no binaries.
@@ -42,7 +42,7 @@ allprojects {
 
 `v<plugin version>-<profile>.<n>`
 
-- **plugin version**: the upstream release the build is based on (`9.0.0` currently uses FFmpeg n9.0.2).
+- **plugin version**: the upstream release the build is based on (`9.0.2` uses FFmpeg n9.0.2).
 - **profile**: which library set, from the table below.
 - **n**: the build number. A rebuild of the same version and profile (new
   flags, toolchain, security fix in a library) gets the next number; a published
@@ -63,8 +63,8 @@ iOS `arm64` + simulator `arm64` `x86_64` (15.0), macOS universal (10.15), and Wi
 
 | Branch | Contents |
 |--------|----------|
-| `main` | upstream `main`, untouched; update it with GitHub's *Sync fork* |
-| `profiles` | current upstream source + this directory + fixes not yet upstream |
+| `main` | upstream source and the Studio workflow entry point; default branch |
+| `profiles` | Studio release tooling, configuration, patches and historical build scripts |
 | `profiles-7.1` | upstream `v7.1.0` + the same, with 7.1 flag names |
 
 Profile flags are written per branch because upstream renamed its build
@@ -72,6 +72,15 @@ options in 8.x (`--enable-x264` became `--enable-lib-x264`). A separate
 branch for every FFmpeg version is unnecessary.
 
 ## Releasing
+
+Use [Publish Studio](PUBLISHING.md) for current releases. It builds from a
+selected upstream tag, applies the configured patches and publishes a Git tag
+containing the native binaries. Local platform builds are not required.
+
+### Historical build scripts
+
+The commands below describe the earlier release process and remain available
+for maintaining historical versions.
 
 ```bash
 git switch profiles                          # or profiles-7.1
@@ -82,7 +91,7 @@ git push origin v<version>-studio.<n>        # or pass --push
 
 The binaries are committed on a commit that sits only behind its tag, so the
 branches stay small and merge cleanly with upstream. Every release still adds
-~200 MB that each consumer's `pub get` downloads once; delete tags nobody uses.
+native binary data that each consumer downloads when resolving the Git dependency.
 
 For Studio 9, `studio.json` pins the source and patch series. `studio.py`
 verifies matching receipts for Windows, Android, iOS and macOS before tagging.
@@ -100,14 +109,12 @@ Use it only when creating a new tag. Existing tags must not be overwritten.
 
 ## Updating from upstream
 
-```bash
-git fetch upstream
-git switch main && git merge --ff-only upstream/main && git push origin main
-git switch profiles && git merge main
-```
+For automated releases, select a new upstream tag in Publish Studio and review
+patch compatibility. The workflow checks out that source independently of the
+`profiles` branch.
 
-Then check that `profiles/*.sh` still matches the flags in
-`./nix-<platform>.sh --help` before the next release.
+Keep `main` synchronized with upstream using normal merges while retaining its
+publishing workflow. Published tags must not be moved or overwritten.
 
 ## Adding a profile
 
