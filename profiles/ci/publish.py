@@ -56,6 +56,7 @@ def read_plan(dist):
 def inputs():
     paths = [PROFILES / "publish.json", *sorted((PROFILES / "ci").rglob("*.py")),
              PROFILES / "ci/setup-windows.sh", PROFILES / "ci/dispatch.yml",
+             PROFILES / "ci/release-notes.md",
              CONTROL / ".github/workflows/publish-studio.yml", *[PROFILES / p for p in CONFIG["patches"]]]
     return {path.relative_to(CONTROL).as_posix(): digest(path) for path in paths}
 
@@ -315,19 +316,25 @@ def assemble(source, dist):
                   "\n".join(f"{name}: " + shlex.join(flags) for name, flags in provenance["build_flags"].items()))
     git(source, "tag", "-a", plan["release_tag"], "-m", annotation)
     run(["git", "bundle", "create", str(dist / "release.bundle"), f"refs/tags/{plan['release_tag']}"], cwd=source)
-    notes = (f"Studio native binaries based on [{plan['upstream_tag']}]"
-             f"(https://github.com/{CONFIG['upstream']}/tree/{plan['upstream_sha']}).\n\n"
-             f"FFmpeg: `{plan['ffmpeg_tag']}` (`{plan['ffmpeg_sha']}`).\n\n"
-             "Android (3 ABIs), iOS (device + 2 simulator architectures), macOS universal, Windows x64.\n\n"
-             "GPL enabled. Libraries: x264, x265, dav1d, LAME, zimg, zlib and libiconv; "
-             "Apple also enables bzip2/VideoToolbox, Android enables MediaCodec.\n\n"
-             "Local patches: Clang 22 Windows colorspace/blur workarounds and Apple Flutter null options.\n\n"
-             "Windows and macOS native smoke checks passed. Android/iOS bundles were structurally "
-             "validated; this workflow does not run Android/iOS applications.\n\n"
-             "Use the tagged Flutter Git dependency at `flutter/flutter`. Android applications must "
-             "register the plugin's `libs-maven` repository as documented in `flutter/flutter/BUILD.md`.\n\n"
-             "Build flags, source/patch identity and file hashes are recorded in `release-build.json`.\n")
-    (dist / "RELEASE-NOTES.md").write_text(notes, encoding="utf-8")
+    (dist / "RELEASE-NOTES.md").write_text(release_notes(plan), encoding="utf-8")
+
+
+def release_title(plan):
+    return (f"{plan['release_tag']} — FFmpeg {plan['ffmpeg_tag'].removeprefix('n')} "
+            "and Studio native builds")
+
+
+def release_notes(plan):
+    values = {"WRAPPER_VERSION": plan["wrapper_version"],
+              "FFMPEG_VERSION": plan["ffmpeg_tag"].removeprefix("n"),
+              "UPSTREAM_TAG": plan["upstream_tag"], "RELEASE_TAG": plan["release_tag"],
+              "SOURCE_URL": f"https://github.com/{CONFIG['upstream']}/tree/{plan['upstream_sha']}"}
+    template = (PROFILES / "ci/release-notes.md").read_text(encoding="utf-8")
+    for name, value in values.items():
+        template = template.replace("{{" + name + "}}", value)
+    if re.search(r"\{\{[A-Z_]+\}\}", template):
+        raise ValueError("Release notes contain unresolved template values")
+    return template
 
 
 def publish(source, dist, mode):
@@ -361,7 +368,7 @@ def publish(source, dist, mode):
         run(["gh", "release", "upload", tag, "--repo", repository, "--clobber", *assets])
     else:
         run(["gh", "release", "create", tag, "--repo", repository, "--verify-tag", "--draft",
-             "--title", tag, "--notes-file", dist / "RELEASE-NOTES.md", *assets])
+             "--title", release_title(plan), "--notes-file", dist / "RELEASE-NOTES.md", *assets])
     if mode == "publish":
         run(["gh", "release", "edit", tag, "--repo", repository, "--draft=false"])
 
