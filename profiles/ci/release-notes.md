@@ -2,8 +2,8 @@ Native FFmpegKitNext {{WRAPPER_VERSION}} binaries for video editing and export, 
 
 ## Changes
 
-- Update the Studio release base to upstream {{UPSTREAM_TAG}}.
-- Automate builds and release packaging for all four supported platforms.
+- Restore 10-bit x265 encoding on Android, iOS, macOS and Windows. Software HEVC exports now support Main 10 instead of silently falling back to 8-bit output.
+- Verify an encoded HEVC file with FFprobe during the Windows and macOS native checks, requiring Main 10 and `yuv420p10le` output.
 
 See the [upstream release notes](https://github.com/arthenica/ffmpeg-kit-next/releases/tag/{{UPSTREAM_TAG}}) for changes included in {{UPSTREAM_TAG}}.
 
@@ -17,7 +17,7 @@ See the [upstream release notes](https://github.com/arthenica/ffmpeg-kit-next/re
 
 Included libraries: x264, x265, dav1d, LAME, zimg and zlib. Apple builds also enable libiconv, bzip2 and VideoToolbox; Android enables MediaCodec. All platforms use `--speed` and enable GPL components.
 
-The Windows x265 build supports 8-bit output.
+The x265 build produces 10-bit HEVC output. It accepts 8-bit input, but does not include a separate 8-bit x265 encoder; use x264 for 8-bit software H.264 output.
 
 ## Supported platforms
 
@@ -57,6 +57,7 @@ iOS and macOS use the bundled frameworks through CocoaPods or Swift Package Mana
 ## Validation
 
 - Windows x64 and macOS arm64 native runtime checks covered loading, versions, Studio encoders, blur filters, video export and cancellation of a running session.
+- Main 10 regression checks encoded a 10-bit input through libx265 and verified the final HEVC profile and pixel format with FFprobe. Automatic conversion to an 8-bit encoder input is disabled for this check.
 - Blur regression checks covered `gblur`, `dblur` and `bilateral` with 8-bit and 10-bit pixel formats at widths 572 and 574.
 - Android and iOS packages were checked for the supported architectures and wrapper version. This workflow does not run Android/iOS applications or Flutter integration tests.
 - The release step verified that all four bundles came from the same source and patch set, and checked their file hashes before assembly.

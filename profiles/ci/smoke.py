@@ -1,4 +1,5 @@
 import ctypes as ct
+import json
 import os
 from pathlib import Path
 import plistlib
@@ -36,6 +37,7 @@ def check(root, platform, wrapper_version, ffmpeg_tag):
         "ffk_config_get_ffmpeg_version": (ct.c_void_p, []),
         "ffk_config_get_version": (ct.c_void_p, []),
         "ffk_ffmpegkit_execute_with_arguments": (ct.c_void_p, [ct.POINTER(ct.c_char_p), ct.c_size_t]),
+        "ffk_ffprobekit_execute_with_arguments": (ct.c_void_p, [ct.POINTER(ct.c_char_p), ct.c_size_t]),
         "ffk_ffmpegkit_execute_with_arguments_async": (ct.c_void_p, [ct.POINTER(ct.c_char_p), ct.c_size_t, *([ct.c_void_p] * 9)]),
         "ffk_session_get_return_code": (ct.c_int, [ct.c_void_p, ct.POINTER(ct.c_int)]),
         "ffk_session_get_output": (ct.c_void_p, [ct.c_void_p]),
@@ -59,10 +61,12 @@ def check(root, platform, wrapper_version, ffmpeg_tag):
     if actual != wrapper_version:
         raise ValueError(f"Unexpected wrapper version: {actual}")
 
-    def execute(arguments):
+    def execute(arguments, *, probe=False):
         values = [value.encode("utf-8") for value in arguments]
         vector = (ct.c_char_p * len(values))(*values)
-        session = library.ffk_ffmpegkit_execute_with_arguments(vector, len(values))
+        function = (library.ffk_ffprobekit_execute_with_arguments if probe else
+                    library.ffk_ffmpegkit_execute_with_arguments)
+        session = function(vector, len(values))
         if not session:
             raise ValueError("Native session creation failed")
         try:
@@ -91,6 +95,14 @@ def check(root, platform, wrapper_version, ffmpeg_tag):
     with tempfile.TemporaryDirectory() as directory:
         execute(["-y", "-f", "lavfi", "-i", "testsrc2=size=64x64:rate=2", "-frames:v", "2",
                  "-c:v", "libx264", "-pix_fmt", "yuv420p", str(Path(directory) / "smoke.mp4")])
+        hevc = str(Path(directory) / "main10.mp4")
+        execute(["-y", "-f", "lavfi", "-i", "testsrc2=size=64x64:rate=2,format=yuv420p10le",
+                 "-frames:v", "2", "-c:v", "libx265", "-preset", "faster",
+                 "-crf", "17", "-profile:v", "main10", "-pix_fmt", "+yuv420p10le", hevc])
+        result = json.loads(execute(["-v", "error", "-select_streams", "v:0", "-show_entries",
+                                     "stream=codec_name,profile,pix_fmt", "-of", "json", hevc], probe=True))
+        if result.get("streams") != [{"codec_name": "hevc", "profile": "Main 10", "pix_fmt": "yuv420p10le"}]:
+            raise ValueError(f"x265 did not produce 10-bit HEVC: {result}")
     arguments = ["-re", "-f", "lavfi", "-i", "testsrc2=size=64x64:rate=30", "-t", "120", "-f", "null", "-"]
     encoded = [value.encode("utf-8") for value in arguments]
     vector = (ct.c_char_p * len(encoded))(*encoded)
@@ -114,7 +126,7 @@ def check(root, platform, wrapper_version, ffmpeg_tag):
         library.ffk_session_free(session)
     if directory_handle:
         directory_handle.close()
-    print(f"Native smoke passed on {platform}: versions, encoders, blur and cancellation")
+    print(f"Native smoke passed on {platform}: versions, encoders, Main 10 HEVC, blur and cancellation")
 
 
 if __name__ == "__main__":

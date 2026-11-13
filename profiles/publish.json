@@ -10,7 +10,8 @@
   "patches": [
     "patches/studio/06-clang22-colorspace.patch",
     "patches/studio/07-clang22-blur.patch",
-    "ci/patches/apple-null-options.patch"
+    "ci/patches/apple-null-options.patch",
+    "ci/patches/x265-main10.patch"
   ],
   "platforms": {
     "windows": {

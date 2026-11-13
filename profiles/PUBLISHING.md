@@ -43,7 +43,7 @@ The workflow on `main` delegates to the reusable workflow on `profiles`. Its ref
 - Native binaries are committed at the release tag. Flutter applications use the package at `flutter/flutter`.
 - Native bundles and SHA-256 checksums are retained as CI artifacts for assembly and diagnostics. They are not attached to GitHub Releases.
 - `release-build.json` records the upstream and FFmpeg commits, tooling and patch identity, build flags and native file hashes.
-- Windows and macOS run native checks for versions, enabled libraries, blur filters, video export and cancellation.
+- Windows and macOS run native checks for versions, enabled libraries, blur filters, video export and cancellation. The x265 check requires an actual Main 10 HEVC file, verified with FFprobe.
 - Android and iOS packages are checked for architecture and version coverage. Device runtime and Flutter integration tests are outside this workflow's coverage.
 - The current profile does not build Linux, Web, tvOS, visionOS or Windows arm64.
 - The workflow uses `GITHUB_TOKEN`; no additional PAT or secret is required. Only the release job receives write access.
