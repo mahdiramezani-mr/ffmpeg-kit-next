@@ -36,7 +36,7 @@ The workflow on `main` delegates to the reusable workflow on `profiles`. Its ref
 - If the tag was pushed but release creation failed, retrying proceeds only when the assembled content matches the existing tag.
 - For a new run after a tag already exists, use build number `0` to select the next available number.
 - Hosted jobs have a six-hour limit. Builds exceeding this limit must be split by architecture before publication.
-- Windows currently uses LLVM `22.1.8`; Xcode is pinned to `26.6`. Toolchain updates require compatibility and regression checks.
+- Windows currently uses LLVM `22.1.8`; Xcode is pinned to `26.6`. Apple builds and release assembly use Intel macOS runners to avoid hosted arm64 capacity failures. The target architectures are unchanged. Toolchain updates require compatibility and regression checks.
 
 ## Outputs and validation
 

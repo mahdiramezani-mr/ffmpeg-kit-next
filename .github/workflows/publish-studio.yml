@@ -62,9 +62,9 @@ jobs:
           - platform: android
             runner: ubuntu-24.04
           - platform: ios
-            runner: macos-26
+            runner: macos-26-intel
           - platform: macos
-            runner: macos-26
+            runner: macos-26-intel
           - platform: windows
             runner: windows-2025
     runs-on: ${{ matrix.runner }}
@@ -158,7 +158,7 @@ jobs:
 
   release:
     needs: [plan, build]
-    runs-on: macos-26
+    runs-on: macos-26-intel
     permissions:
       contents: write
     steps:

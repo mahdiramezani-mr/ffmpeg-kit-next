@@ -56,7 +56,7 @@ iOS and macOS use the bundled frameworks through CocoaPods or Swift Package Mana
 
 ## Validation
 
-- Windows x64 and macOS arm64 native runtime checks covered loading, versions, Studio encoders, blur filters, video export and cancellation of a running session.
+- Windows x64 and macOS x86_64 native runtime checks covered loading, versions, Studio encoders, blur filters, video export and cancellation of a running session. The macOS arm64 slice was checked structurally as part of the universal bundle.
 - Main 10 regression checks encoded a 10-bit input through libx265 and verified the final HEVC profile and pixel format with FFprobe. Automatic conversion to an 8-bit encoder input is disabled for this check.
 - Blur regression checks covered `gblur`, `dblur` and `bilateral` with 8-bit and 10-bit pixel formats at widths 572 and 574.
 - Android and iOS packages were checked for the supported architectures and wrapper version. This workflow does not run Android/iOS applications or Flutter integration tests.
