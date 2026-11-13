@@ -1,0 +1,97 @@
+--- a/scripts/windows/ffmpeg.sh
++++ b/scripts/windows/ffmpeg.sh
+@@ -479,6 +479,13 @@
+ 
+ ########################### CUSTOMIZATIONS #######################
+ cd "${BASEDIR}"/src/"${LIB_NAME}" 1>>"${BASEDIR}"/build.log 2>&1 || return 1
++
++BLUR_CLANG22_PATCH="${BASEDIR}/tools/patch/ffmpeg/blur-clang22.patch"
++for BLUR_CLANG22_SOURCE in vf_gblur.c vf_dblur.c vf_bilateral.c; do
++  if ! git apply --reverse --check --include="libavfilter/${BLUR_CLANG22_SOURCE}" "${BLUR_CLANG22_PATCH}" 1>>"${BASEDIR}/build.log" 2>&1; then
++    git apply --include="libavfilter/${BLUR_CLANG22_SOURCE}" "${BLUR_CLANG22_PATCH}" 1>>"${BASEDIR}/build.log" 2>&1 || return 1
++  fi
++done
+ git checkout libavformat/file.c 1>>"${BASEDIR}"/build.log 2>&1
+ git checkout libavformat/hls.c 1>>"${BASEDIR}"/build.log 2>&1
+ git checkout libavformat/protocols.c 1>>"${BASEDIR}"/build.log 2>&1
+--- /dev/null
++++ b/tools/patch/ffmpeg/blur-clang22.patch
+@@ -0,0 +1,78 @@
++--- a/libavfilter/vf_gblur.c
+++++ b/libavfilter/vf_gblur.c
++@@ -285,6 +285,10 @@
++                                 width * sizeof(float), height);
++         } else if (s->depth == 8) {
++             for (y = 0; y < height; y++) {
+++
+++#if defined(_WIN32) && defined(__clang__) && __clang_major__ == 22 && defined(__x86_64__)
+++#pragma clang loop vectorize(disable)
+++#endif
++                 for (x = 0; x < width; x++)
++                     dst[x] = lrintf(bptr[x]);
++                 bptr += width;
++@@ -292,6 +296,10 @@
++             }
++         } else {
++             for (y = 0; y < height; y++) {
+++
+++#if defined(_WIN32) && defined(__clang__) && __clang_major__ == 22 && defined(__x86_64__)
+++#pragma clang loop vectorize(disable)
+++#endif
++                 for (x = 0; x < width; x++)
++                     dst16[x] = lrintf(bptr[x]);
++                 bptr += width;
++--- a/libavfilter/vf_dblur.c
+++++ b/libavfilter/vf_dblur.c
++@@ -260,6 +260,9 @@
++         bptr = s->buffer;
++         if (s->depth == 8) {
++             for (y = 0; y < height; y++) {
+++#if defined(_WIN32) && defined(__clang__) && __clang_major__ == 22 && defined(__x86_64__)
+++#pragma clang loop vectorize(disable)
+++#endif
++                 for (x = 0; x < width; x++) {
++                     dst[x] = av_clip_uint8(lrintf(bptr[x]));
++                 }
++@@ -268,6 +271,9 @@
++             }
++         } else if (s->depth <= 16) {
++             for (y = 0; y < height; y++) {
+++#if defined(_WIN32) && defined(__clang__) && __clang_major__ == 22 && defined(__x86_64__)
+++#pragma clang loop vectorize(disable)
+++#endif
++                 for (x = 0; x < width; x++) {
++                     dst16[x] = av_clip_uintp2_c(lrintf(bptr[x]), s->depth);
++                 }
++--- a/libavfilter/vf_bilateral.c
+++++ b/libavfilter/vf_bilateral.c
++@@ -326,6 +326,12 @@
++ BILATERAL_V(uint8_t, byte)
++ BILATERAL_V(uint16_t, word)
++ 
+++#if defined(_WIN32) && defined(__clang__) && __clang_major__ == 22 && defined(__x86_64__)
+++#define BILATERAL_OUTPUT_LOOP_HINT _Pragma("clang loop vectorize(disable)")
+++#else
+++#define BILATERAL_OUTPUT_LOOP_HINT
+++#endif
+++
++ #define BILATERAL_O(type, name)                                               \
++ static void bilateralo_##name(BilateralContext *s, AVFrame *out, AVFrame *in, \
++                               int jobnr, int nb_jobs, int plane)              \
++@@ -339,6 +345,7 @@
++     for (int i = slice_start; i < slice_end; i++) {                           \
++         type *dst = (type *)out->data[plane] + i * dst_linesize;              \
++         const float *const img_out_f = s->img_out_f[plane] + i * width;       \
+++        BILATERAL_OUTPUT_LOOP_HINT                                          \
++         for (int j = 0; j < width; j++)                                       \
++             dst[j] = lrintf(img_out_f[j]);                                    \
++     }                                                                         \
++@@ -346,6 +353,8 @@
++ 
++ BILATERAL_O(uint8_t, byte)
++ BILATERAL_O(uint16_t, word)
+++
+++#undef BILATERAL_OUTPUT_LOOP_HINT
++ 
++ static int bilateralh_planes(AVFilterContext *ctx, void *arg,
++                              int jobnr, int nb_jobs)

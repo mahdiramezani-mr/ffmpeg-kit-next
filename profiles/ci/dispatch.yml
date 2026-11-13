@@ -1,0 +1,34 @@
+name: Publish Studio
+run-name: Studio ${{ inputs.upstream_tag }} (${{ inputs.mode }})
+
+on:
+  workflow_dispatch:
+    inputs:
+      upstream_tag:
+        description: Upstream source tag
+        required: true
+        default: v9.0.2
+      build_number:
+        description: Studio build number (0 = next available)
+        required: true
+        default: '0'
+      mode:
+        description: Create a draft, build only, or publish immediately
+        type: choice
+        options: [draft, build-only, publish]
+        default: draft
+
+permissions:
+  contents: write
+
+concurrency:
+  group: studio-${{ inputs.upstream_tag }}
+  cancel-in-progress: false
+
+jobs:
+  studio:
+    uses: mahdiramezani-mr/ffmpeg-kit-next/.github/workflows/publish-studio.yml@profiles
+    with:
+      upstream_tag: ${{ inputs.upstream_tag }}
+      build_number: ${{ inputs.build_number }}
+      mode: ${{ inputs.mode }}

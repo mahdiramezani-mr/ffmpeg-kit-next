@@ -1,0 +1,30 @@
+--- a/scripts/android/x265.sh
++++ b/scripts/android/x265.sh
+@@ -52,6 +52,7 @@
+   -DSTATIC_LINK_CRT=1 \
+   -DENABLE_PIC=1 \
+   -DENABLE_CLI=0 \
++  -DHIGH_BIT_DEPTH=1 \
+   ${ASM_OPTIONS} \
+   -DCMAKE_SYSTEM_PROCESSOR="$(get_cmake_system_processor)"\
+   -DENABLE_SHARED=0 "${BASEDIR}"/src/"${LIB_NAME}"/source || return 1
+--- a/scripts/apple/x265.sh
++++ b/scripts/apple/x265.sh
+@@ -68,6 +68,7 @@
+   -DSTATIC_LINK_CRT=1 \
+   -DENABLE_PIC=1 \
+   -DENABLE_CLI=0 \
++  -DHIGH_BIT_DEPTH=1 \
+   ${ASM_OPTIONS} \
+   -DCMAKE_SYSTEM_PROCESSOR="$(get_target_cpu)" \
+   -DENABLE_SHARED=0 "${BASEDIR}"/src/"${LIB_NAME}"/source || return 1
+--- a/scripts/windows/x265.sh
++++ b/scripts/windows/x265.sh
+@@ -45,6 +45,7 @@
+   -DCMAKE_POSITION_INDEPENDENT_CODE=1 \
+   -DENABLE_PIC=1 \
+   -DENABLE_CLI=0 \
++  -DHIGH_BIT_DEPTH=1 \
+   ${ASM_OPTIONS} \
+   -DCMAKE_SYSTEM_PROCESSOR="$(get_cmake_system_processor)" \
+   -DENABLE_SHARED=0 "${BASEDIR}"/src/"${LIB_NAME}"/source || return 1

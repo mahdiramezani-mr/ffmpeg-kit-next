@@ -45,6 +45,7 @@ cmake -Wno-dev \
   -DCMAKE_POSITION_INDEPENDENT_CODE=1 \
   -DENABLE_PIC=1 \
   -DENABLE_CLI=0 \
+  -DHIGH_BIT_DEPTH=1 \
   ${ASM_OPTIONS} \
   -DCMAKE_SYSTEM_PROCESSOR="$(get_cmake_system_processor)" \
   -DENABLE_SHARED=0 "${BASEDIR}"/src/"${LIB_NAME}"/source || return 1
